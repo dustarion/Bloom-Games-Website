@@ -13,21 +13,21 @@
         <!-- Navigation Bar -->
         <div class="topnav">
             <!-- Logo -->
-            <a class="logo" href="index.html"><img src="images/main/BloomLogo.png"> </a>
+            <a class="logo" href="index.jsp"><img src="images/main/BloomLogo.png"> </a>
 
             <!-- Menu -->
-            <a href="index.html">Home <i class="fas fa-home"></i></a>
-            <a href="search.html">Search <i class="fas fa-search"></i></a>
-            <a href="admin.html">Admin <i class="fas fa-user-alt"></i></a>
+            <a href="index.jsp">Home <i class="fas fa-home"></i></a>
+            <a href="search.jsp">Search <i class="fas fa-search"></i></a>
+            <a href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
 
             <!-- Login -->
-            <a class="login" href="login.html">Login <i class="fas fa-sign-in-alt"></i></a>
+            <a class="login" href="login.jsp">Login <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <!-- Login Card -->
         <div class="loginSection">
             <!-- <form action="/action_page.php"> -->
-            <form class="loginCard" action="admin.html">
+            <form class="loginCard" action="admin.jsp">
                 <!-- Username -->
                 <p>Username</p><br>
                 <input class="loginTextfield" type="text" name="Username" placeholder="Type Your Username" value="admin">
