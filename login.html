@@ -19,7 +19,7 @@
             <a href="index.html">Home <i class="fas fa-home"></i></a>
             <a href="search.html">Search <i class="fas fa-search"></i></a>
             <a href="admin.html">Admin <i class="fas fa-user-alt"></i></a>
-            
+
             <!-- Login -->
             <a class="login" href="login.html">Login <i class="fas fa-sign-in-alt"></i></a>
         </div>
@@ -27,12 +27,17 @@
         <!-- Login Card -->
         <div class="loginSection">
             <!-- <form action="/action_page.php"> -->
-            <form>
+            <form class="loginCard" action="admin.html">
                 <!-- Username -->
-                <input class="searchbar" type="text" name="SearchQuery" placeholder="Type Anything To Search">
+                <p>Username</p><br>
+                <input class="loginTextfield" type="text" name="Username" placeholder="Type Your Username" value="admin">
                 <br>
+                <!-- Password -->
+                <p>Password</p><br>
+                <input class="loginTextfield" type="text" name="Password" placeholder="Enter Your Password" value="superSecretPassword">
 
-                <!-- <input type="submit" value="Submit"> -->
+                <!-- Login Button -->
+                <input class="primaryButton" type="submit" value="Submit">
             </form> 
         </div>
 
