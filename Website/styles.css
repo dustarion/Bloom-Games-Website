@@ -204,7 +204,7 @@ p {
     text-align: center;
     padding: 19px 16px 15px 16px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1em;
     /* margin-top: 5px; */
 }
 
@@ -532,11 +532,80 @@ input[type=radio]:checked ~ label{
 }
 
 /* ======================================================== */
-/* ====================   Admin Page   ==================== */
+/* ====================   Admin Menu   ==================== */
 /* ======================================================== */
 
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  padding-left: 50px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+    background-color: #282828;
+    color: #F63F45;
+}
+
+.sidenav a.active {
+    color: #F63F45;
+    font-weight: bold;
+}
+
+.sidenav h1{
+    font-size: 2em;
+    padding: 6px 8px 6px 16px;
+    padding-left: 50px;
+    margin-bottom: 50px;
+}
+
+.sidenav p{
+    padding: 6px 8px 6px 16px;
+    padding-left: 50px;
+    margin-top: 20px;
+}
+
+.sidenav .logout {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.adminSection {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  padding: 100px;
+  min-height: 100vh;
+}
+
+.adminSection h3{
+    margin-bottom: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* ======================================================== */
+/* ==============   Admin Dashboard Page   ================ */
+/* ======================================================== */
+
+
 .adminCard {
-    text-align:center;
+    /*text-align:center;*/
     max-width: 100%;
     height: auto;
     overflow: auto;
@@ -544,15 +613,19 @@ input[type=radio]:checked ~ label{
     padding: 50px;
     border-radius: 15px;
     box-shadow: 7px 7px 20px 7px;
-    margin-top: 25px;
+    margin-top: 50px;
     margin-bottom: 25px;
 }
 
-.adminCard h3{
-    position:relative;
-    right:1.1%;
+.adminCard .container {
+    width: 100%;
+    background-color: #424242;
+    text-align:center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px 7px;
 }
-
 
 
 
