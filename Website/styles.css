@@ -532,6 +532,105 @@ input[type=radio]:checked ~ label{
 }
 
 /* ======================================================== */
+/* =====================   Game Page   ==================== */
+/* ======================================================== */
+.gamePage {
+    padding: 200px;
+    min-height: 100vh;
+}
+
+.gameDetailsSection {
+    width: 100%;
+}
+
+.gameDetailsSectionLeft {
+    float: left;
+    width: 30%;
+}
+
+.gameDetailsSectionRight {
+    float: left;
+    width: 70%;
+}
+
+/* Left Section */
+.gameDetailsSection .imageDetails {
+    float: left;
+    width: 100%;
+    display: inline-block;
+}
+
+.gameDetailsSection .imageDetails .primaryButton {
+    float: left;
+    padding: 20px 50px;
+    width: 80%;
+}
+
+.gameDetailsSection img {
+    float: left;
+    width: 80%;
+    height: auto;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 14px 7px;
+}
+
+/* Right Section */
+
+.gameDetailsDescription {
+    width: 100%;
+}
+
+.gameDetailsDescription h3 {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.gameDetailsDescription p {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.gameDetailsDescription .detailCard {
+    width: 100%;
+    height: auto;
+    background-color: #303030;
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px 7px;
+    overflow: hidden;
+}
+
+.gameDetailsDescription .detailCard p {
+    margin-bottom: 20px;
+}
+
+.gameDetailsDescription .detailCard th {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.gameDetailsDescription .detailCard strong {
+    font-size: 1.5em;
+}
+
+.gameDetailsDescription .detailCard .highlight {
+    padding-top: 20px;
+    font-size: 2em;
+    color: #F8E71C;
+    height: 100%;
+}
+
+.gameSection {
+    width: 100%;
+}
+
+
+
+
+/* ======================================================== */
 /* ====================   Admin Menu   ==================== */
 /* ======================================================== */
 
