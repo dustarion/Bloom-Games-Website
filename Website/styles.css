@@ -689,6 +689,7 @@ input[type=radio]:checked ~ label{
 }
 
 /* Create Comment Form */
+
 .commentForm {
     background-color: #303030;
     border-radius: 20px;
@@ -696,6 +697,7 @@ input[type=radio]:checked ~ label{
     overflow: hidden;
     padding: 50px;
     margin-top: 25px;
+    margin-bottom: 100px;
 }
 
 .commentForm h3 {
@@ -712,10 +714,93 @@ input[type=radio]:checked ~ label{
     width: 50%
 }
 
+.commentForm .textfield {
+    width: 70%;
+    background-color: #424242;
+    border-width: 0px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 20px -5px #000000;
+    color
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1.6em;
+}
+
+
 .commentForm .rating {
+    margin-top: 20px;
     font-size: 2em;
 }
 
+/*Star Form!*/
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+input.star-1:checked ~ label.star:before { color: #F62; }
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+
+.commentForm .commentBox {
+    clear: both;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.commentForm .commentfield {
+    padding: 20px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    width: 95%;
+    background-color: #424242;
+    box-shadow: 7px 7px 20px -5px #000000;
+    overflow: hidden;
+    border-width: 0px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 1.6em;
+}
+
+/* Post Button */
+.commentForm input[type="submit"] {
+    margin-top: 30px;
+    float: right;
+    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+    font-size: 1.6em;
+    background-color: #F63F45;
+    color: #ffffff;
+    box-shadow: 7px 7px 20px -5px #000000;
+    overflow: hidden;
+    border-width: 0px;
+    border-radius: 15px;
+}
 
 
 
