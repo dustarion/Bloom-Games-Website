@@ -23,7 +23,8 @@
 	String purchaseLocation = request.getParameter("purchase");
 	String imageLocation = request.getParameter("imagelink");
 	String[] genre = request.getParameterValues("genreID");
-	String preOwned = request.getParameter("preOwned");
+	
+	String preOwnedString = request.getParameter("preOwned");
 	
 	
 	// Convert Price to a float
@@ -44,6 +45,14 @@
 			
 		}
 	}
+	
+	// Convert preOwned to an integer
+	int preOwned = 0;
+	try {
+		preOwned = Integer.parseInt(preOwnedString);
+ 	} catch (NumberFormatException nfe) {
+  	    System.err.println("NumberFormatException: " + nfe.getMessage());
+  	}
 
 	try {
 		
@@ -74,8 +83,8 @@
 		ps.setString(6, trailerLocation);
 		ps.setString(7, purchaseLocation);
 		ps.setString(8, imageLocation);
-		ps.setString(9, "1");
-		ps.setInt(10, 1);
+		ps.setInt(9, preOwned);
+		ps.setInt(10, 1); // 1 is the admin
 		
 		int countGame = ps.executeUpdate();	
 		

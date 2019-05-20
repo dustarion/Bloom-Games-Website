@@ -94,6 +94,7 @@
 
                 <!-- Genre -->
                 <p>Genre</p>
+                <br>
                 
                 <!-- Load From Database -->
                 <%
@@ -120,64 +121,14 @@
 					
 					}
 				%>
-                
-<%--                 <div class="selectBox">
-	                <select name="Select Genres" multiple>
-	                    <!-- <option value="All" selected>All Genres</option> -->
-	                    <!-- <option value="Adventure">Adventure</option>
-	                    <option value="FPS">FPS</option>
-	                    <option value="Survival">Survival</option>
-	                    <option value="Strategy">Strategy</option> -->
-                
-		                <!-- Load Genres From Database -->
-		                <%
-			                try{
-			        			//Step1: Load JDBC Driver
-			        			Class.forName("com.mysql.jdbc.Driver");
-			
-			        			// Step 2: Define Connection URL
-			        			String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
-			
-			        			// Step 3: Establish connection to URL
-			        			Connection conn = DriverManager.getConnection(connURL);
-			        	
-			        			// Step 4: Create Statement object
-			        			Statement stmt = conn.createStatement();
-			
-			        			String sqlgenreName = "SELECT * FROM genre";
-			        			ResultSet rsGN = stmt.executeQuery(sqlgenreName);
-			        			
-			         			while(rsGN.next()){
-			         				out.print("<option name=\"genreID\" value=\"" + rsGN.getInt("genreID") + "\">" + rsGN.getString("genreName") + "</option>");
-			        			}
-			        			
-			        			conn.close();
-			        		}catch (Exception e) {
-			        			out.print(e);
-			        		}
-		                %>
-                
-                	</select>
-                </div> --%>
+                <br>
+                <br>
                 <br>
 
                 <!-- Radio Preowned -->
                 <p>Pre-Owned</p>
-                <div class="radioPreowned">
-                <ul>  
-                    <li>
-                        <input type="radio" id="s-option" name="preOwned">
-                        <label for="s-option">New</label>
-                        <div class="check"><div class="inside"></div></div>
-                    </li>
-                      
-                    <li>
-                        <input type="radio" id="t-option" name="preOwned">
-                        <label for="t-option">Preowned</label>
-                        <div class="check"><div class="inside"></div></div>
-                    </li>
-                </ul>
-                </div>
+                <br>
+                <input type="checkbox" name="preOwned" value="1"><span class ="inlinePara">Pre-Owned</span><br>
 
 
                 <!-- Submit -->

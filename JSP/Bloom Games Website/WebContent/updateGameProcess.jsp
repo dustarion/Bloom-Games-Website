@@ -29,15 +29,16 @@
 	// Convert Price to a float
 	double price = 0.0;
 	try {
-   		price = Double.parseDouble(priceString);
+		if (!priceString.isEmpty()) {
+   			price = Double.parseDouble(priceString);
+		}
  	} catch (NumberFormatException nfe) {
   	    System.err.println("NumberFormatException: " + nfe.getMessage());
   	  out.print("Price is Wrong");
   	}
 	
-	//creating an int array of genre_id
-	out.print("genre,l")
-	if (genre.length > 0){
+	// creating an int array of genre_id
+	if (genre != null){
 		int[] genre_id = new int [genre.length];
 		for(int i=0; i<genre.length; i++){
 			try{
@@ -65,10 +66,129 @@
 		// gameID is set to auto_increment
 		
 		String SQLPrice = "'" + priceString + "'";
-		//Populating the Game Entity
-		String sqlGameInsert = "INSERT INTO games (gameTitle, description, company, releaseDate, price, trailerLocation, purchaseLocation, imageLocation, preOwned, creatorID)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
-		out.print(sqlGameInsert);
+		String sqlGameUpdate = "UPDATE games SET";
+		// Check which fields are not null.
+		
+		int elementsBeingUpdated = 0;
+		
+		// gameTitle
+		if (gameTitle != null || gameTitle.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " gameTitle = "+ gameTitle;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// description
+		if (description != null || description.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " description = "+ description;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// company
+		if (company != null || company.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " company = "+ company;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// releaseDate
+		if (releaseDate != null || releaseDate.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " releaseDate = "+ releaseDate;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// price
+		if (price != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " price = "+ SQLPrice;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// trailerLocation
+		if (releaseDate != null || releaseDate.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " releaseDate = "+ releaseDate;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// purchaseLocation
+		if (releaseDate != null || releaseDate.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " releaseDate = "+ releaseDate;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// imageLocation
+		if (releaseDate != null || releaseDate.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " releaseDate = "+ releaseDate;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		// preOwned
+		if (releaseDate != null || releaseDate.length() != 0) {
+			if (elementsBeingUpdated > 0) {
+				sqlGameUpdate += ",";
+			}
+
+			sqlGameUpdate += " releaseDate = "+ releaseDate;
+			
+			elementsBeingUpdated ++;
+		}
+		
+		
+		
+		
+		
+		sqlGameUpdate += "WHERE condition;";
+		
+		
+		
+		
+/* 		UPDATE table_name
+		SET column1 = value1, column2 = value2, ...
+		WHERE condition; */
+		
+		
+		
+		
+		//Populating the Game Entity
+		String sqlGameUpdate = "INSERT INTO games (gameTitle, description, company, releaseDate, price, trailerLocation, purchaseLocation, imageLocation, preOwned, creatorID)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement ps = conn.prepareStatement(sqlGameInsert);
 		ps.setString(1, gameTitle);
@@ -79,7 +199,12 @@
 		ps.setString(6, trailerLocation);
 		ps.setString(7, purchaseLocation);
 		ps.setString(8, imageLocation);
-		ps.setString(9, "1");
+		
+		if (preOwned != 1) {
+			ps.setString(9, 0);
+		} else {
+			ps.setString(9, 1);
+		}
 		ps.setInt(10, 1);
 		
 /* 		ps.setInt(6, price);
