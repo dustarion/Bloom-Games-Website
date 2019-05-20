@@ -890,6 +890,10 @@ label.star:before {
     margin-bottom: 25px;
 }
 
+.adminCard a {
+	text-decoration: none;
+}
+
 .adminCard .container {
     width: 100%;
     background-color: #424242;
@@ -961,6 +965,7 @@ input[type="submit"] {
 }
 
 .inlinePara {
+	padding-left:20px;
 	font-size: 1em;
     font-weight: 400;
     color: #ffffff;

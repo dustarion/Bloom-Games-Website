@@ -961,7 +961,8 @@ input[type="submit"] {
 }
 
 .inlinePara {
-    font-size: 1em;
+	padding-left:20px;
+	font-size: 1em;
     font-weight: 400;
     color: #ffffff;
 }

@@ -43,9 +43,28 @@
         </div>
 
         <div class="adminSection">
-            <h3>Add Game</h3>
-            <form class="mainFormCard">
+            <h3>Update Game</h3>
 
+            <form class="mainFormCard">
+                <!-- Select Game to Update -->
+                <p>Select Game to Update</p>
+                <div class="selectBox">
+                    <select name="Select Game">
+
+                        <!-- Load from Database -->
+
+                        <option value="Metro">Metro</option>
+                        <option value="Spacerace">Spacerace</option>
+                        <option value="Left4Dead2">Left4Dead2</option>
+                        <option value="DeadSpace">Dead Space 2</option>
+                    </select>
+                </div>
+                <br>
+            </form>
+
+            <div class="mainFormCard">
+
+                <form>
                 <!-- Game Title -->
                 <p>Game Title</p>
                 <input class="formTextField" type="text" name="gameTitle" placeholder="Enter Game Title">
@@ -79,22 +98,20 @@
 
                 <!-- Genre -->
                 <p>Genre</p>
-
-                <input type="checkbox" name="genreID" value="genreID">
-                <span class ="inlinePara">genreName</span>
                 <br>
-
-
-
-                <div class="selectBox">
-                <select name="All Genres">
-                    <option value="All" selected>All Genres</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="FPS">FPS</option>
-                    <option value="Survival">Survival</option>
-                    <option value="Strategy">Strategy</option>
-                </select>
-                </div>
+                <input type="checkbox" name="genreID" value="Shooter">
+                <span class ="inlinePara">Shooter</span>
+                <br>
+                <input type="checkbox" name="genreID" value="Action">
+                <span class ="inlinePara">Action</span>
+                <br>
+                <input type="checkbox" name="genreID" value="Adventure">
+                <span class ="inlinePara">Adventure</span>
+                <br>
+                <input type="checkbox" name="genreID" value="Survival">
+                <span class ="inlinePara">Survival</span>
+                <br>
+                <br>
                 <br>
 
                 <!-- Radio Preowned -->
@@ -117,24 +134,11 @@
 
 
                 <!-- Submit -->
-                <input type="submit" value="Submit">
+                <input type="submit" value="Update">
+                </form>
 
-
-
-
-            </form>
-
+            </div>
         </div>
-
-
-
-
-
-
-
-
-
-
 
         <footer>
             <div class = footing>

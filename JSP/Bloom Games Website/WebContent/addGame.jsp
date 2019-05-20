@@ -21,31 +21,31 @@
         <!-- Navigation Bar -->
         <div class="topnav">
             <!-- Logo -->
-            <a class="logo" href="index.html"><img src="images/main/BloomLogo.png"> </a>
+            <a class="logo" href="index.jsp"><img src="images/main/BloomLogo.png"> </a>
 
             <!-- Menu -->
-            <a href="index.html">Home <i class="fas fa-home"></i></a>
-            <a href="search.html">Search <i class="fas fa-search"></i></a>
-            <a class="active" href="admin.html">Admin <i class="fas fa-user-alt"></i></a>
+            <a href="index.jsp">Home <i class="fas fa-home"></i></a>
+            <a href="search.jsp">Search <i class="fas fa-search"></i></a>
+            <a class="active" href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
 
             <!-- Login -->
-            <a class="login" href="index.html">Logout <i class="fas fa-sign-in-alt"></i></a>
+            <a class="login" href="index.jsp">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <div class="sidenav">
             <h1>Admin Panel</h1>
 
-            <a href="admin.html"><i class="fas fa-columns"></i> Dashboard</a>
+            <a href="admin.jsp"><i class="fas fa-columns"></i> Dashboard</a>
 
             <p>Games</p>
-            <a class="active" href="addGames.html"><i class="fas fa-pen"></i> Add Games</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Games</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Games</a>
+            <a class="active" href="addGames.jsp"><i class="fas fa-pen"></i> Add Games</a>
+            <a href="updateGame.jsp"><i class="fas fa-cog"></i> Update Games</a>
+            <a href="deleteGame.jsp"><i class="fas fa-trash"></i> Delete Games</a>
 
             <p>Genres</p>
-            <a href="#"><i class="fas fa-pen"></i> Add Genres</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Genres</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Genres</a>
+            <a href="addGenre.jsp"><i class="fas fa-pen"></i> Add Genres</a>
+            <a href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
+            <a href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
 
             <a class="logout" href="#">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
