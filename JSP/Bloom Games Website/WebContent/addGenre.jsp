@@ -1,6 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
+    
+    	<meta charset="ISO-8859-1">
+        <title>Add Genre</title>
+        
         <!-- CSS File -->
         <link rel="stylesheet" type="text/css" href="styles.css">
 
@@ -13,31 +21,31 @@
         <!-- Navigation Bar -->
         <div class="topnav">
             <!-- Logo -->
-            <a class="logo" href="index.html"><img src="../images/main/BloomLogo.png"> </a>
+            <a class="logo" href="index.jsp"><img src="images/main/BloomLogo.png"> </a>
 
             <!-- Menu -->
-            <a href="../index.html">Home <i class="fas fa-home"></i></a>
-            <a href="../search.html">Search <i class="fas fa-search"></i></a>
-            <a class="active" href="../admin.html">Admin <i class="fas fa-user-alt"></i></a>
+            <a href="index.jsp">Home <i class="fas fa-home"></i></a>
+            <a href="search.jsp">Search <i class="fas fa-search"></i></a>
+            <a class="active" href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
 
             <!-- Login -->
-            <a class="login" href="../index.html">Logout <i class="fas fa-sign-in-alt"></i></a>
+            <a class="login" href="index.jsp">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <div class="sidenav">
             <h1>Admin Panel</h1>
 
-            <a href="admin.html"><i class="fas fa-columns"></i> Dashboard</a>
+            <a href="admin.jsp"><i class="fas fa-columns"></i> Dashboard</a>
 
             <p>Games</p>
-            <a class="active" href="addGames.html"><i class="fas fa-pen"></i> Add Games</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Games</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Games</a>
+            <a href="addGames.jsp"><i class="fas fa-pen"></i> Add Games</a>
+            <a href="updateGame.jsp"><i class="fas fa-cog"></i> Update Games</a>
+            <a href="deleteGame.jsp"><i class="fas fa-trash"></i> Delete Games</a>
 
             <p>Genres</p>
-            <a href="#"><i class="fas fa-pen"></i> Add Genres</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Genres</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Genres</a>
+            <a class="active" href="addGenre.jsp"><i class="fas fa-pen"></i> Add Genres</a>
+            <a href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
+            <a href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
 
             <a class="logout" href="#">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
@@ -48,7 +56,7 @@
 
                 <!-- Genre Title -->
                 <p>Genre Title</p>
-                <input class="formTextField" type="text" name="gameTitle" placeholder="Enter Genre Title">
+                <input class="formTextField" type="text" name="genreTitle" placeholder="Enter New Genre Title">
                 <br>
 
                 <!-- Submit -->
@@ -59,20 +67,37 @@
             <br>
             <br>
             <br>
-            <p><strong>Existing Genres</strong></p>
+            <p><strong><i class="fas fa-gamepad"></i> Existing Genres</strong></p>
             <hr>
-
+            
+            
+            <!-- Load From Database -->
+                <%
+					try{
+						//Step1: Load JDBC Driver
+						Class.forName("com.mysql.jdbc.Driver");
+			
+						// Step 2: Define Connection URL
+						String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+			
+						// Step 3: Establish connection to URL
+						Connection conn = DriverManager.getConnection(connURL);
+						// Step 4: Create Statement object
+						Statement stmt = conn.createStatement();
+			
+						String sqlgenreName = "SELECT * FROM genre";
+						ResultSet rsGN = stmt.executeQuery(sqlgenreName);
+						
+						while(rsGN.next()){
+							out.print("<span class=\"inlinePara\">" + rsGN.getString("genreName") + "</span><br><hr>");
+						}
+						conn.close();
+					}catch (Exception e) {
+					
+					}
+				%>
+				
         </div>
-
-
-
-
-
-
-
-
-
-
 
         <footer>
             <div class = footing>

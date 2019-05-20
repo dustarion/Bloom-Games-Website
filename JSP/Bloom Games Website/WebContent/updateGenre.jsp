@@ -1,6 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
+    
+    	<meta charset="ISO-8859-1">
+        <title>Update Genre</title>
+    	
+    
         <!-- CSS File -->
         <link rel="stylesheet" type="text/css" href="styles.css">
 
@@ -13,31 +22,31 @@
         <!-- Navigation Bar -->
         <div class="topnav">
             <!-- Logo -->
-            <a class="logo" href="index.html"><img src="../images/main/BloomLogo.png"> </a>
+            <a class="logo" href="index.jsp"><img src="images/main/BloomLogo.png"> </a>
 
             <!-- Menu -->
-            <a href="../index.html">Home <i class="fas fa-home"></i></a>
-            <a href="../search.html">Search <i class="fas fa-search"></i></a>
-            <a class="active" href="../admin.html">Admin <i class="fas fa-user-alt"></i></a>
+            <a href="index.jsp">Home <i class="fas fa-home"></i></a>
+            <a href="search.jsp">Search <i class="fas fa-search"></i></a>
+            <a class="active" href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
 
             <!-- Login -->
-            <a class="login" href="../index.html">Logout <i class="fas fa-sign-in-alt"></i></a>
+            <a class="login" href="index.jsp">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <div class="sidenav">
             <h1>Admin Panel</h1>
 
-            <a href="admin.html"><i class="fas fa-columns"></i> Dashboard</a>
+            <a href="admin.jsp"><i class="fas fa-columns"></i> Dashboard</a>
 
             <p>Games</p>
-            <a class="active" href="addGames.html"><i class="fas fa-pen"></i> Add Games</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Games</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Games</a>
+            <a href="addGames.jsp"><i class="fas fa-pen"></i> Add Games</a>
+            <a href="updateGame.jsp"><i class="fas fa-cog"></i> Update Games</a>
+            <a href="deleteGame.jsp"><i class="fas fa-trash"></i> Delete Games</a>
 
             <p>Genres</p>
-            <a href="#"><i class="fas fa-pen"></i> Add Genres</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Genres</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Genres</a>
+            <a href="addGenre.jsp"><i class="fas fa-pen"></i> Add Genres</a>
+            <a class="active" href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
+            <a href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
 
             <a class="logout" href="#">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
@@ -45,25 +54,44 @@
         <div class="adminSection">
             <h3>Update Genre</h3>
 
-            <form class="mainFormCard">
+            <form class="mainFormCard" action="updateGenreProcess.jsp">
                 <!-- Select Game to Update -->
                 <p>Select Genre to Update</p>
                 <div class="selectBox">
-                    <select name="Select Game">
-
+                    <select name="genreID">
                         <!-- Load from Database -->
-
-                        <option value="Metro">Metro</option>
-                        <option value="Spacerace">Spacerace</option>
-                        <option value="Left4Dead2">Left4Dead2</option>
-                        <option value="DeadSpace">Dead Space 2</option>
+                        <%
+							try{
+								//Step1: Load JDBC Driver
+								Class.forName("com.mysql.jdbc.Driver");
+					
+								// Step 2: Define Connection URL
+								String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+					
+								// Step 3: Establish connection to URL
+								Connection conn = DriverManager.getConnection(connURL);
+								// Step 4: Create Statement object
+								Statement stmt = conn.createStatement();
+					
+								String sqlgenreName = "SELECT * FROM genre";
+								ResultSet rsGN = stmt.executeQuery(sqlgenreName);
+								
+								while(rsGN.next()){
+									out.print("<option value=\"" + rsGN.getInt("genreID") + "\">"+ rsGN.getString("genreName") + "</option>");
+								}
+								conn.close();
+							}catch (Exception e) {
+							
+							}
+						%>
+                        
                     </select>
                 </div>
                 <br>
 
                 <!-- Genre Title -->
                 <p>New Genre Title</p>
-                <input class="formTextField" type="text" name="gameTitle" placeholder="Enter New Genre Title to Replace">
+                <input class="formTextField" type="text" name="newGenreTitle" placeholder="Enter New Genre Title to Replace">
                 <br>
 
                 <!-- Submit -->

@@ -27,7 +27,6 @@
 	
 	// Convert gameID to an integer
 	int gameID = 0;
-	System.err.println(gameIDString);
 	try {
 			gameID = Integer.parseInt(gameIDString);
 	} catch (NumberFormatException nfe) {

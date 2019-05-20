@@ -16,15 +16,15 @@
         <!-- Navigation Bar -->
         <div class="topnav">
             <!-- Logo -->
-            <a class="logo" href="index.html"><img src="images/main/BloomLogo.png"> </a>
+            <a class="logo" href="index.jsp"><img src="images/main/BloomLogo.png"> </a>
 
             <!-- Menu -->
-            <a class="active" href="index.html">Home <i class="fas fa-home"></i></a>
-            <a href="search.html">Search <i class="fas fa-search"></i></a>
-            <a href="admin.html">Admin <i class="fas fa-user-alt"></i></a>
+            <a class="active" href="index.jsp">Home <i class="fas fa-home"></i></a>
+            <a href="search.jsp">Search <i class="fas fa-search"></i></a>
+            <a href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
 
             <!-- Login -->
-            <a class="login" href="login.html">Login <i class="fas fa-sign-in-alt"></i></a>
+            <a class="login" href="login.jsp">Login <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <div class="homeSection1">
@@ -48,8 +48,8 @@
                 <h3>Apex Legends</h3>
                 <p>Conquer with character in the next evolution of Battle Royale</p>
                 <!-- Buttons -->
-                <form method="post" action="game.html">
-                    <button class="primaryButton" href="game.html">Get the Game</button>
+                <form method="post" action="game.jsp">
+                    <button class="primaryButton" href="game.jsp">Get the Game</button>
                 </form>
                 <button class="secondaryButton" href="#">Watch the Trailer</button>
             </div>
@@ -62,8 +62,8 @@
                 <h3>Apex Legends</h3>
                 <p>Conquer with character in the next evolution of Battle Royale</p>
                 <!-- Buttons -->
-                <form method="post" action="game.html">
-                    <button class="primaryButton" href="game.html">Get the Game</button>
+                <form method="post" action="game.jsp">
+                    <button class="primaryButton" href="game.jsp">Get the Game</button>
                 </form>
                 <button class="secondaryButton" href="#">Watch the Trailer</button>
             </div>
