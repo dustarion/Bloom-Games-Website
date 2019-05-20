@@ -57,7 +57,7 @@
                 <!-- Select Game to Update -->
                 <p>Select Game to Update</p>
                 <div class="selectBox">
-                	<select name="Select Game">
+                	<select name="gameID">
 
                         <!-- Load from Database -->
                         <%
@@ -94,6 +94,11 @@
                 <p>Game Title</p>
                 <input class="formTextField" type="text" name="gameTitle" placeholder="Enter Game Title">
                 <br>
+                
+                <!-- Game Description -->
+                <p>Game Description</p>
+                <textarea name="gameDescription" cols="40" rows="5" class="formTextField" type="textarea" placeholder="Enter Game Description"></textarea>
+                <br>
 
                 <!-- Company Name -->
                 <p>Company</p>
@@ -124,7 +129,34 @@
                 <!-- Genre -->
                 <p>Genre</p>
                 <br>
-                <input type="checkbox" name="genreID" value="Shooter">
+                
+                <!-- Load Genre From Database -->
+                <%
+					try{
+						//Step1: Load JDBC Driver
+						Class.forName("com.mysql.jdbc.Driver");
+			
+						// Step 2: Define Connection URL
+						String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+			
+						// Step 3: Establish connection to URL
+						Connection conn = DriverManager.getConnection(connURL);
+						// Step 4: Create Statement object
+						Statement stmt = conn.createStatement();
+			
+						String sqlgenreName = "SELECT * FROM genre";
+						ResultSet rsGN = stmt.executeQuery(sqlgenreName);
+						
+						while(rsGN.next()){
+							out.print("<input type=\"checkbox\" name=\"genreID\" value=\""+ rsGN.getInt("genreID") + "\">" + "<span class =\"inlinePara\">" + rsGN.getString("genreName")+ "</span>"+"<br>");
+						}
+						conn.close();
+					}catch (Exception e) {
+					
+					}
+				%>
+                
+               <!--  <input type="checkbox" name="genreID" value="Shooter">
                 <span class ="inlinePara">Shooter</span>
                 <br>
                 <input type="checkbox" name="genreID" value="Action">
@@ -135,27 +167,15 @@
                 <br>
                 <input type="checkbox" name="genreID" value="Survival">
                 <span class ="inlinePara">Survival</span>
-                <br>
+                <br> -->
+                
                 <br>
                 <br>
 
                 <!-- Radio Preowned -->
                 <p>Pre-Owned</p>
-                <div class="radioPreowned">
-                <ul>  
-                    <li>
-                        <input type="radio" id="s-option" name="PreOwned">
-                        <label for="s-option">New</label>
-                        <div class="check"><div class="inside"></div></div>
-                    </li>
-                      
-                    <li>
-                        <input type="radio" id="t-option" name="PreOwned">
-                        <label for="t-option">Preowned</label>
-                        <div class="check"><div class="inside"></div></div>
-                    </li>
-                </ul>
-                </div>
+                <br>
+                <input type="checkbox" name="preOwned" value="1"><span class ="inlinePara">Pre-Owned</span><br>
 
 
                 <!-- Submit -->
