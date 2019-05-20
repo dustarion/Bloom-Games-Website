@@ -73,16 +73,20 @@
 		                out.print("<h3>" + rs.getString("gameTitle") + "</h3>");
 		                // http://localhost:8080/Bloom_Games_Website/Wenimages/games/nomanssky.jpg
 		                
+		                String shortDesc = rs.getString("description").substring(0, 247);
+		                shortDesc += "...";
 		                // Shorten the string to fit within rs.getString("imageLocation")
-		                out.print("<p>Conquer with character in the next evolution of Battle Royale</p>");
+		                out.print("<p>" + shortDesc + "</p>");
+		                
+		                // Create Link With gameId
+		                
+		                //updateGenreProcess.jsp?genreID=6
+		                String gameLink = "game.jsp?gameID=" + rs.getString("gameID");
 		                
 		                // Buttons
-		                out.print("<form method=\"post\" action=\"game.jsp\">");
-		                out.print("<button class=\"primaryButton\" href=\"game.jsp\">Get the Game</button>");
-		                out.print("</form>");
-		                out.print("<button class=\"secondaryButton\" href=\"#\">Watch the Trailer</button>");
+		                out.print("<a href=\"" + gameLink + "\" class=\"primaryButton\">Get the Game</a>");
+		                
 		                out.print("</div>");
-					//out.print("<span class=\"inlinePara\">" + rsGN.getString("genreName") + "</span><br><hr>");
 				}
 				conn.close();
 			}catch (Exception e) {

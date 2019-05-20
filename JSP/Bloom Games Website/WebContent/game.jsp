@@ -1,6 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
+    
+    	<meta charset="ISO-8859-1">
+        <title>Game</title>
+        
         <!-- CSS File -->
         <link rel="stylesheet" type="text/css" href="styles.css">
 
@@ -25,44 +33,84 @@
         </div>
 
         <div class="gamePage">
+        
+        <!-- Load From Database -->
+        <%
+     	// Initialise Variables
+    	String gameIDString = request.getParameter("gameID");
+        
+     	// Convert gameID to an integer
+    	int gameID = 0;
+    	try {
+    			gameID = Integer.parseInt(gameIDString);
+    	} catch (NumberFormatException nfe) {
+    	  	    System.err.println("NumberFormatException: " + nfe.getMessage());
+    	}
+        
+        try{
+			//Step1: Load JDBC Driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// Step 2: Define Connection URL
+			String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+
+			// Step 3: Establish connection to URL
+			Connection conn = DriverManager.getConnection(connURL);
+			// Step 4: Create Statement object
+			Statement stmt = conn.createStatement();
+
+			String gamesSqlStr = "SELECT * FROM games WHERE gameID = " + gameIDString;
+			ResultSet rs = stmt.executeQuery(gamesSqlStr);
+			
+			while(rs.next()){
+				
+				// Game Details
+	            out.print("<div class=\"gameDetailsSection\"><div class=\"gameDetailsSectionLeft\"><div class=\"imageDetails\">");
+				out.print("<img src=\"" + rs.getString("imageLocation") + "\">");
+				out.print("<a class=\"primaryButton\" href=\"#\">Purchase ($" +  rs.getString("price") + ")</a>");
+				
+				out.print("</div></div><div class=\"gameDetailsSectionRight\"><div class=\"gameDetailsDescription\">");
+				
+				out.print("<h3>Metro Exodus</h3>");
+				out.print("<p>Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness. Explore vast, non-linear levels, lose yourself in an immersive, sandbox survival experience, and follow a thrilling story-line that spans an entire year in the Moscow Metro.</p>");
+				
+				out.print("<table class=\"detailCard\"><tr><th>");
+				out.print("<p><strong>Release Date</strong></p>");
+				out.print("<p>15 Feb, 2019</p></th><th>");
+				out.print("<p><strong>Company</strong></p>");
+				out.print("<p>4A Games</p></th><th>");
+				out.print("<p class=\"highlight\">Pre-Owned</p>");
+				                    
+				out.print("</th></tr></table></div></div></div>");
+				
+			}
+			conn.close();
+		}catch (Exception e) {
+			System.err.println(e);
+		}
+        %>
+        
+        
+        
 
             <!-- Game Details -->
-            <div class="gameDetailsSection">
-                <div class="gameDetailsSectionLeft">
-                    <div class="imageDetails">
-                        <img src="images/games/apexLegends.png">
-                        <button class="primaryButton" href="#">Purchase ($49.99)</button>
-                    </div>
-                </div>
+<!--             <div class="gameDetailsSection"><div class="gameDetailsSectionLeft"><div class="imageDetails">
+			<img src="images/games/apexLegends.png">
+			<button class="primaryButton" href="#">Purchase ($49.99)</button>
+			
+			</div></div><div class="gameDetailsSectionRight"><div class="gameDetailsDescription">
 
-                <div class="gameDetailsSectionRight">
+			<h3>Metro Exodus</h3>
+			<p>Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness. Explore vast, non-linear levels, lose yourself in an immersive, sandbox survival experience, and follow a thrilling story-line that spans an entire year in the Moscow Metro.</p>
 
-                    <div class="gameDetailsDescription">
-
-                        <h3>Metro Exodus</h3>
-                        <p>Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness. Explore vast, non-linear levels, lose yourself in an immersive, sandbox survival experience, and follow a thrilling story-line that spans an entire year in the Moscow Metro.</p>
-
-                        <table class="detailCard">
-                            <tr>
-                                <th>
-                                    <p><strong>Release Date</strong></p>
-                                    <p>15 Feb, 2019</p>
-                                </th>
-                                <th>
-                                    <p><strong>Company</strong></p>
-                                    <p>4A Games</p>
-                                </th>
-                                <th>
-                                    <p class="highlight">Pre-Owned</p>
-                                </th>
-                            </tr>
-                        </table>
-
-                    </div>
-
-                </div>
-
-            </div>
+			<table class="detailCard"><tr><th>
+			<p><strong>Release Date</strong></p>
+			<p>15 Feb, 2019</p></th><th>
+			<p><strong>Company</strong></p>
+			<p>4A Games</p></th><th>
+			<p class="highlight">Pre-Owned</p>
+                                
+			</th></tr></table></div></div></div> -->
 
             <!-- Video -->
             <div class="trailerSection">

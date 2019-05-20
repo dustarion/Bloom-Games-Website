@@ -71,7 +71,6 @@
 						conn.close();
 						
 						if (resultCount == 1) {
-							
 							response.sendRedirect("admin.jsp");
 						} else {
 							out.print("<p>Invalid Credentials</p>");
