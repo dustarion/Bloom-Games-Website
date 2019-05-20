@@ -5,22 +5,34 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
 <body>
 
 <%
-	//----------INIT--------------
-	String name = request.getParameter("gameName");
-	String description = request.getParameter("gameDescription"); 
-	int price = Integer.parseInt(request.getParameter("price"));
-	String company = request.getParameter("gameCompany"); 
-	String releaseDate = request.getParameter("releaseDate"); 
-	String imgLoc = request.getParameter("imageLocation"); 
-	String NP = request.getParameter("preowned"); 
-	String[] genre = request.getParameterValues("genre_id");
+	// Initialise Variables
+	
+	String gameTitle = request.getParameter("gameTitle");
+	String description = request.getParameter("gameDescription");
+	String company = request.getParameter("company");
+	String releaseDate = request.getParameter("releaseDate");
+	String priceString = request.getParameter("price");
+	String trailerLocation = request.getParameter("trailer");
+	String purchaseLocation = request.getParameter("purchase");
+	String imageLocation = request.getParameter("imagelink");
+	String[] genre = request.getParameterValues("genreID");
+	String preOwned = request.getParameter("preOwned");
+	
+	
+	// Convert Price to a float
+	try {
+   		float price = Float.parseFloat(priceString);
+ 	} catch (NumberFormatException nfe) {
+  	    System.err.println("NumberFormatException: " + nfe.getMessage());
+  	  out.print("Price is Wrong");
+  	}
 	
 	//creating an int array of genre_id
 	int[] genre_id = new int [genre.length];
@@ -32,33 +44,32 @@
 		}
 	}
 
-	try{
+	try {
+		
+		//Step1: Load JDBC Driver
 		Class.forName("com.mysql.jdbc.Driver");
-	
+
+		// Step 2: Define Connection URL
 		String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
-	
+
+		// Step 3: Establish connection to URL
 		Connection conn = DriverManager.getConnection(connURL);
 
+		// Step 4: Create Statement object
 		Statement stmt = conn.createStatement();
-		
-		String gameIdSql = "SELECT game_id FROM game ORDER BY game_id";
-		ResultSet rsGame = stmt.executeQuery(gameIdSql);
-		
-		//getting new game_id for new game
-		rsGame.last();
-		int gameId = rsGame.getInt("game_id") + 1;
+	
+		// gameID is set to auto_increment
 
 		//Populating the Game Entity
-		String sqlStr = "INSERT INTO game (game_id, game_title, company, release_date, description, price, image_location, preowned) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sqlStr = "INSERT INTO games (gameTitle, description, company, releaseDate, price, trailerLocation, purchaseLocation, imageLocation, preOwned) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = conn.prepareStatement(sqlStr);
-		ps.setInt(1, gameId);
-		ps.setString(2, name);
-		ps.setString(3, company);
-		ps.setString(4, releaseDate);
-		ps.setString(5, description);
-		ps.setInt(6, price);
-		ps.setString(7, imgLoc);
-		ps.setString(8, NP);
+		ps.setString(1, name);
+		ps.setString(2, company);
+		ps.setString(3, releaseDate);
+		ps.setString(4, description);
+		ps.setInt(5, price);
+		ps.setString(6, imgLoc);
+		ps.setString(7, NP);
 		int countGame = ps.executeUpdate();		
 		
 		//Populating Genre Entity
