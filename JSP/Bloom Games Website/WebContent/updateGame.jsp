@@ -46,7 +46,7 @@
             <a href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
             <a href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
 
-            <a class="logout" href="#">Logout <i class="fas fa-sign-in-alt"></i></a>
+            <a class="logout" href="index.jsp">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <div class="adminSection">

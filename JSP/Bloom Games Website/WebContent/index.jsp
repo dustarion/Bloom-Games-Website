@@ -1,14 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
+    
+    	<meta charset="ISO-8859-1">
+        <title>Home</title>
+        
         <!-- CSS File -->
         <link rel="stylesheet" type="text/css" href="styles.css">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-        <!-- <i class="fas fa-camera"></i> -->
-
-
 
     </head>
     <body>
@@ -21,7 +26,7 @@
             <!-- Menu -->
             <a class="active" href="index.jsp">Home <i class="fas fa-home"></i></a>
             <a href="search.jsp">Search <i class="fas fa-search"></i></a>
-            <a href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
+            <!-- <a href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a> -->
 
             <!-- Login -->
             <a class="login" href="login.jsp">Login <i class="fas fa-sign-in-alt"></i></a>
@@ -39,34 +44,54 @@
 
         <div class="homeSection2">
             <h2>Latest Releases</h2>
+            
+            <!-- Load Games From Database -->
+            <%
+            try{
+				//Step1: Load JDBC Driver
+				Class.forName("com.mysql.jdbc.Driver");
+	
+				// Step 2: Define Connection URL
+				String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+	
+				// Step 3: Establish connection to URL
+				Connection conn = DriverManager.getConnection(connURL);
+				// Step 4: Create Statement object
+				Statement stmt = conn.createStatement();
+	
+				String gamesSqlStr = "SELECT * FROM games";
+				ResultSet rs = stmt.executeQuery(gamesSqlStr);
+				
+				while(rs.next()){
+					
+					// Load Game
+		            out.print("<div class=\"gameCard\">");
+						
+		            	// Thumbnail
+		                out.print("<img src=\"" + rs.getString("imageLocation") + "\">");
 
-            <!-- Apex Legends -->
-            <div class="gameCard">
-                <!-- Game Thumbnail -->
-                <img src="images/games/apexLegends.png">
-
-                <h3>Apex Legends</h3>
-                <p>Conquer with character in the next evolution of Battle Royale</p>
-                <!-- Buttons -->
-                <form method="post" action="game.jsp">
-                    <button class="primaryButton" href="game.jsp">Get the Game</button>
-                </form>
-                <button class="secondaryButton" href="#">Watch the Trailer</button>
-            </div>
-
-            <!-- Apex Legends -->
-            <div class="gameCard">
-                <!-- Game Thumbnail -->
-                <img src="images/games/apexLegends.png">
-
-                <h3>Apex Legends</h3>
-                <p>Conquer with character in the next evolution of Battle Royale</p>
-                <!-- Buttons -->
-                <form method="post" action="game.jsp">
-                    <button class="primaryButton" href="game.jsp">Get the Game</button>
-                </form>
-                <button class="secondaryButton" href="#">Watch the Trailer</button>
-            </div>
+		                out.print("<h3>" + rs.getString("gameTitle") + "</h3>");
+		                // http://localhost:8080/Bloom_Games_Website/Wenimages/games/nomanssky.jpg
+		                
+		                // Shorten the string to fit within rs.getString("imageLocation")
+		                out.print("<p>Conquer with character in the next evolution of Battle Royale</p>");
+		                
+		                // Buttons
+		                out.print("<form method=\"post\" action=\"game.jsp\">");
+		                out.print("<button class=\"primaryButton\" href=\"game.jsp\">Get the Game</button>");
+		                out.print("</form>");
+		                out.print("<button class=\"secondaryButton\" href=\"#\">Watch the Trailer</button>");
+		                out.print("</div>");
+					//out.print("<span class=\"inlinePara\">" + rsGN.getString("genreName") + "</span><br><hr>");
+				}
+				conn.close();
+			}catch (Exception e) {
+			
+			}
+            
+            
+            
+            %>
 
         </div>
 

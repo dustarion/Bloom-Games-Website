@@ -27,7 +27,7 @@
             <!-- Menu -->
             <a href="index.jsp">Home <i class="fas fa-home"></i></a>
             <a href="search.jsp">Search <i class="fas fa-search"></i></a>
-            <a href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a>
+            <!-- <a href="admin.jsp">Admin <i class="fas fa-user-alt"></i></a> -->
 
             <!-- Login -->
             <a class="login" href="login.jsp">Login <i class="fas fa-sign-in-alt"></i></a>
@@ -35,6 +35,7 @@
 
         <!-- Login Card -->
         <div class="loginSection">
+
             <!-- <form action="/action_page.php"> -->
             <form class="loginCard" action="loginProcess.jsp">
                 <!-- Username -->

@@ -30,7 +30,7 @@
             <a class="active" href="admin.jsp"><i class="fas fa-columns"></i> Dashboard</a>
 
             <p>Games</p>
-            <a href="addGame.jsp"><i class="fas fa-pen"></i> Add Games</a>
+            <a href="addGames.jsp"><i class="fas fa-pen"></i> Add Games</a>
             <a href="updateGame.jsp"><i class="fas fa-cog"></i> Update Games</a>
             <a href="deleteGame.jsp"><i class="fas fa-trash"></i> Delete Games</a>
 
@@ -39,7 +39,7 @@
             <a href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
             <a href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
 
-            <a class="logout" href="#">Logout <i class="fas fa-sign-in-alt"></i></a>
+            <a class="logout" href="index.jsp">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
         <div class="adminSection">

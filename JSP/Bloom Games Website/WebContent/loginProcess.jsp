@@ -56,19 +56,22 @@
 						// Step 4: Create Statement object
 						Statement stmt = conn.createStatement();
 			
-						String checkAccountSqlStr = "SELECT COUNT(*) FROM users WHERE (username = \"" + username + "\") AND (password = \"" + password + "\");";
+						String checkAccountSqlStr = "SELECT COUNT(*), userID FROM users WHERE (username = \"" + username + "\") AND (password = \"" + password + "\") GROUP BY userID;";
 						ResultSet rs = stmt.executeQuery(checkAccountSqlStr);
 						
 						int resultCount = 0;
+						String userID = "";
 						while(rs.next()){
 							if (rs.getInt("COUNT(*)") == 1) {
 								resultCount ++;
+								userID = rs.getString("userID");
 								break;
 							}
 						}
 						conn.close();
 						
 						if (resultCount == 1) {
+							
 							response.sendRedirect("admin.jsp");
 						} else {
 							out.print("<p>Invalid Credentials</p>");
