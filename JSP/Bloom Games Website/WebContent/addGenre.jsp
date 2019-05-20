@@ -44,7 +44,7 @@
 
         <div class="adminSection">
             <h3>Add Genre</h3>
-            <form class="mainFormCard">
+            <form class="mainFormCard" action="addGenreProcess.jsp">     	
 
                 <!-- Genre Title -->
                 <p>Genre Title</p>
@@ -54,6 +54,13 @@
                 <!-- Submit -->
                 <input type="submit" value="Add Genre">
             </form>
+            
+            <!-- List Of Current Genres -->
+            <br>
+            <br>
+            <br>
+            <p><strong>Existing Genres</strong></p>
+            <hr>
 
         </div>
 

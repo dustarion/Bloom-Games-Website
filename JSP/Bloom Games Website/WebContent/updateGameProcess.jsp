@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Update Game</title>
 	</head>
 <body>
 
@@ -217,7 +217,7 @@
 		}
 		
 		///display message
-		out.print("<h1>Game Successfully added!</h1>");
+		out.print("<h1>Sucess</h1>");
 		out.print("<a href='admin.jsp'>Click here to return to Dashboard");
 
 		conn.close();
