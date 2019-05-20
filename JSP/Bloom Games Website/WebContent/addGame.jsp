@@ -54,7 +54,7 @@
             <h3>Add Game</h3>
 
             <!-- Add Game Form -->
-            <form class="mainFormCard" action="addGameProcess.jsp" method="post">
+            <form class="mainFormCard" action="addGameProcess.jsp">
 
                 <!-- Game Title -->
                 <p>Game Title</p>
@@ -95,9 +95,35 @@
                 <!-- Genre -->
                 <p>Genre</p>
                 
-                <div class="selectBox">
-	                <select name="All Genres">
-	                    <option value="All" selected>All Genres</option>
+                <!-- Load From Database -->
+                <%
+					try{
+						//Step1: Load JDBC Driver
+						Class.forName("com.mysql.jdbc.Driver");
+			
+						// Step 2: Define Connection URL
+						String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+			
+						// Step 3: Establish connection to URL
+						Connection conn = DriverManager.getConnection(connURL);
+						// Step 4: Create Statement object
+						Statement stmt = conn.createStatement();
+			
+						String sqlgenreName = "SELECT * FROM genre";
+						ResultSet rsGN = stmt.executeQuery(sqlgenreName);
+						
+						while(rsGN.next()){
+							out.print("<input type=\"checkbox\" name=\"genreID\" value=\""+ rsGN.getInt("genreID") + "\">" + "<span class =\"inlinePara\">" + rsGN.getString("genreName")+ "</span>"+"<br>");
+						}
+						conn.close();
+					}catch (Exception e) {
+					
+					}
+				%>
+                
+<%--                 <div class="selectBox">
+	                <select name="Select Genres" multiple>
+	                    <!-- <option value="All" selected>All Genres</option> -->
 	                    <!-- <option value="Adventure">Adventure</option>
 	                    <option value="FPS">FPS</option>
 	                    <option value="Survival">Survival</option>
@@ -132,7 +158,7 @@
 		                %>
                 
                 	</select>
-                </div>
+                </div> --%>
                 <br>
 
                 <!-- Radio Preowned -->

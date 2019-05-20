@@ -27,8 +27,9 @@
 	
 	
 	// Convert Price to a float
+	double price = 0.0;
 	try {
-   		float price = Float.parseFloat(priceString);
+   		price = Double.parseDouble(priceString);
  	} catch (NumberFormatException nfe) {
   	    System.err.println("NumberFormatException: " + nfe.getMessage());
   	  out.print("Price is Wrong");
@@ -59,39 +60,52 @@
 		Statement stmt = conn.createStatement();
 	
 		// gameID is set to auto_increment
-
+		
+		String SQLPrice = "'" + priceString + "'";
 		//Populating the Game Entity
-		String sqlStr = "INSERT INTO games (gameTitle, description, company, releaseDate, price, trailerLocation, purchaseLocation, imageLocation, preOwned) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		PreparedStatement ps = conn.prepareStatement(sqlStr);
-		ps.setString(1, name);
-		ps.setString(2, company);
-		ps.setString(3, releaseDate);
-		ps.setString(4, description);
-		ps.setInt(5, price);
-		ps.setString(6, imgLoc);
-		ps.setString(7, NP);
-		int countGame = ps.executeUpdate();		
+		String sqlGameInsert = "INSERT INTO games (gameTitle, description, company, releaseDate, price, trailerLocation, purchaseLocation, imageLocation, preOwned, creatorID)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		out.print(sqlGameInsert);
+		
+		PreparedStatement ps = conn.prepareStatement(sqlGameInsert);
+		ps.setString(1, gameTitle);
+		ps.setString(2, description);
+		ps.setString(3, company);
+		ps.setString(4, releaseDate);
+		ps.setDouble(5, price);
+		ps.setString(6, trailerLocation);
+		ps.setString(7, purchaseLocation);
+		ps.setString(8, imageLocation);
+		ps.setString(9, "1");
+		ps.setInt(10, 1);
+		
+/* 		ps.setInt(6, price);
+		ps.setString(7, imgLoc);
+		ps.setString(8, NP); */
+		int countGame = ps.executeUpdate();	
+		
 		
 		//Populating Genre Entity
-		String genreSqlStr = "INSERT INTO game_genre(game_id, genre_id) VALUES (?, ?)";
+		/* String genreSqlStr = "INSERT INTO game_genre(gameID, genreID) VALUES (?, ?)";
 		PreparedStatement psGenre = conn.prepareStatement(genreSqlStr);
 		int countGenre = 0;
 		for(int i=0; i<genre.length; i++){
 			psGenre.setInt(1, gameId);
 			psGenre.setInt(2, genre_id[i]);	
 			countGenre = psGenre.executeUpdate();
-		}
+		} */
 		
 		//display message
-		if (countGenre > 0 && countGame > 0) {
+		//if (countGenre > 0 && countGame > 0) {
 			out.print("<h1>Game Successfully added!</h1>");
 			out.print("<a href='controlPanel.jsp'>Click here to return to Control Panel");
-		} else {
-			JOptionPane.showMessageDialog(null, "Error adding game", "Error", JOptionPane.ERROR_MESSAGE);
-		}
+		//} else {
+			//JOptionPane.showMessageDialog(null, "Error adding game", "Error", JOptionPane.ERROR_MESSAGE);
+		//}
 
 		conn.close();
 	} catch (Exception e) {
+		out.print("stage 2");
 		out.print(e);
 	}
 %>
