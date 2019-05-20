@@ -65,8 +65,6 @@
 		//Populating the Game Entity
 		String sqlGameInsert = "INSERT INTO games (gameTitle, description, company, releaseDate, price, trailerLocation, purchaseLocation, imageLocation, preOwned, creatorID)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
-		out.print(sqlGameInsert);
-		
 		PreparedStatement ps = conn.prepareStatement(sqlGameInsert);
 		ps.setString(1, gameTitle);
 		ps.setString(2, description);
@@ -79,33 +77,35 @@
 		ps.setString(9, "1");
 		ps.setInt(10, 1);
 		
-/* 		ps.setInt(6, price);
-		ps.setString(7, imgLoc);
-		ps.setString(8, NP); */
 		int countGame = ps.executeUpdate();	
+		
+		// Get GameID
+		String sqlGetGameID = "SELECT gameID from games WHERE gameTitle =\"" + gameTitle + "\"";
+		ResultSet rsGID = stmt.executeQuery(sqlGetGameID);
+		rsGID.first();
+		int gameID = rsGID.getInt("gameID");
 		
 		
 		//Populating Genre Entity
-		/* String genreSqlStr = "INSERT INTO game_genre(gameID, genreID) VALUES (?, ?)";
+		String genreSqlStr = "INSERT INTO game_genre(gameID, genreID) VALUES (?, ?)";
 		PreparedStatement psGenre = conn.prepareStatement(genreSqlStr);
 		int countGenre = 0;
 		for(int i=0; i<genre.length; i++){
-			psGenre.setInt(1, gameId);
+			psGenre.setInt(1, gameID);
 			psGenre.setInt(2, genre_id[i]);	
 			countGenre = psGenre.executeUpdate();
-		} */
+		}
 		
 		//display message
-		//if (countGenre > 0 && countGame > 0) {
+		if (countGenre > 0) {
 			out.print("<h1>Game Successfully added!</h1>");
 			out.print("<a href='controlPanel.jsp'>Click here to return to Control Panel");
-		//} else {
-			//JOptionPane.showMessageDialog(null, "Error adding game", "Error", JOptionPane.ERROR_MESSAGE);
-		//}
+		} else {
+			JOptionPane.showMessageDialog(null, "Error adding game", "Error", JOptionPane.ERROR_MESSAGE);
+		}
 
 		conn.close();
 	} catch (Exception e) {
-		out.print("stage 2");
 		out.print(e);
 	}
 %>

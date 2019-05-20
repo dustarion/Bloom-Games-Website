@@ -13,7 +13,7 @@
 
 <%
 	// Initialise Variables
-	
+	String gameID = request.getParameter("gameID");
 	String gameTitle = request.getParameter("gameTitle");
 	String description = request.getParameter("gameDescription");
 	String company = request.getParameter("company");
@@ -36,12 +36,15 @@
   	}
 	
 	//creating an int array of genre_id
-	int[] genre_id = new int [genre.length];
-	for(int i=0; i<genre.length; i++){
-		try{
-			genre_id[i] = Integer.parseInt(genre[i]);
-		}catch(NumberFormatException e){
-			
+	out.print("genre,l")
+	if (genre.length > 0){
+		int[] genre_id = new int [genre.length];
+		for(int i=0; i<genre.length; i++){
+			try{
+				genre_id[i] = Integer.parseInt(genre[i]);
+			}catch(NumberFormatException e){
+				
+			}
 		}
 	}
 
