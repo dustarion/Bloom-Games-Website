@@ -66,7 +66,7 @@ CREATE TABLE `game_genre` (
     PRIMARY KEY (`genreID`,`gameID`),
     KEY `gameID_idx` (`gameID`),
     CONSTRAINT `gameID` FOREIGN KEY (`gameID`) REFERENCES `games` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `genreID` FOREIGN KEY (`genreID`) REFERENCES `genre` (`genreID`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `genreID` FOREIGN KEY (`genreID`) REFERENCES `genre` (`genreID`) ON DELETE RESTRICT ON UPDATE CASCADE
 )   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ------------------------------------------------------------------------
