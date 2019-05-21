@@ -973,7 +973,9 @@ input[type="submit"] {
     color: #ffffff;
 }
 
-
+.hidden {
+	display: none;
+}
 
 
 

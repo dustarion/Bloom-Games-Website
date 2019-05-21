@@ -113,10 +113,8 @@
         %>
 
             <div class="commentsSection">
-            
-            <%
-            out.print("<form class=\"commentForm\" action=\"?gameID=" + gameID + "\">");
-            %>
+
+            <form class="commentForm">
             <div class="commentFormName">
 			<h3>Name</h3>
 			<input class="textfield" type="text" name="name" placeholder="Enter Name Here">
@@ -127,6 +125,8 @@
 			<input class="textfield" type="number" min="0" max="5" value="1" step="1" name="rating" placeholder="Enter a rating from 1-5 here">
                         
 			</div>
+			
+			<input class="hidden" type="text" name="gameID" placeholder="" value="20">
 
                     <!-- Comment Box -->
                     <div class="commentBox">
