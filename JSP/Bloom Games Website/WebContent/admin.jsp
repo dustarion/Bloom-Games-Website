@@ -49,18 +49,18 @@
             <div class="adminCard">
                 <h3>Games</h3>
                 <div class="container">
-                    <a class="primaryButton" href="addGame.jsp"><i class="fas fa-pen"></i> Add Games</a>
-                    <a class="primaryButton" href="updateGame.jsp"><i class="fas fa-cog"></i> Update Games</a>
-                    <a class="primaryButton" href="deleteGame.jsp"><i class="fas fa-trash"></i> Delete Games</a>
+                    <button class="primaryButton" onclick="window.location.href = 'addGames.jsp';"><i class="fas fa-pen"></i> Add Games</button>
+                    <button class="primaryButton" onclick="window.location.href = 'updateGame.jsp';" ><i class="fas fa-cog"></i> Update Games</button>
+                    <button class="primaryButton" onclick="window.location.href = 'deleteGame.jsp';"><i class="fas fa-trash"></i> Delete Games</button>
                 </div>
             </div>
 
             <div class="adminCard">
                 <h3>Genres</h3>
                 <div class="container">
-                    <a class="primaryButton" href="addGenre.jsp"><i class="fas fa-pen"></i> Add Genres</a>
-                    <a class="primaryButton" href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
-                    <a class="primaryButton" href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
+                    <button class="primaryButton" onclick="window.location.href = 'addGenre.jsp';"><i class="fas fa-pen"></i> Add Genres</button>
+                    <button class="primaryButton" onclick="window.location.href = 'updateGenre.jsp';"><i class="fas fa-cog"></i> Update Genres</button>
+                    <button class="primaryButton" onclick="window.location.href = 'deleteGenre.jsp';"><i class="fas fa-trash"></i> Delete Genres</button>
                 </div>
             </div>
 

@@ -67,21 +67,43 @@
 				// Game Details
 	            out.print("<div class=\"gameDetailsSection\"><div class=\"gameDetailsSectionLeft\"><div class=\"imageDetails\">");
 				out.print("<img src=\"" + rs.getString("imageLocation") + "\">");
-				out.print("<a class=\"primaryButton\" href=\"#\">Purchase ($" +  rs.getString("price") + ")</a>");
+				out.print("<button class=\"primaryButton\" onclick=\"window.location.href = '" + rs.getString("purchaseLocation") + "';\">Purchase ($" + rs.getString("price") + ")</button>");
 				
 				out.print("</div></div><div class=\"gameDetailsSectionRight\"><div class=\"gameDetailsDescription\">");
 				
-				out.print("<h3>Metro Exodus</h3>");
-				out.print("<p>Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness. Explore vast, non-linear levels, lose yourself in an immersive, sandbox survival experience, and follow a thrilling story-line that spans an entire year in the Moscow Metro.</p>");
+				out.print("<h3>" + rs.getString("gameTitle") + "</h3>");
+				out.print("<p>" + rs.getString("description") +"</p>");
 				
 				out.print("<table class=\"detailCard\"><tr><th>");
 				out.print("<p><strong>Release Date</strong></p>");
-				out.print("<p>15 Feb, 2019</p></th><th>");
+				
+				out.print("<p>" + rs.getString("releaseDate") + "</p></th><th>");
+				
 				out.print("<p><strong>Company</strong></p>");
-				out.print("<p>4A Games</p></th><th>");
-				out.print("<p class=\"highlight\">Pre-Owned</p>");
+				
+				out.print("<p>" + rs.getString("Company") + "</p></th><th>");
+				
+				// Determine if Pre-Owned
+				if (rs.getInt("preOwned") == 1) {
+					// Pre-Owned
+					out.print("<p class=\"highlight\">" + "Pre-Owned" + "</p>");
+				} else {
+					out.print("<p class=\"highlight\">" + "New" + "</p>");
+				}
 				                    
 				out.print("</th></tr></table></div></div></div>");
+				
+				// Youtube Trailer
+				String youtubeTrailer = "https://www.youtube.com/embed/";
+				youtubeTrailer += rs.getString("trailerLocation").substring(32,43);
+				
+				out.print("<div class=\"trailerSection\"><div class=\"trailerCard\">");
+				out.print("<iframe src=\"" + youtubeTrailer + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen>");
+				out.print("</iframe></div></div>");
+				
+				
+				
+				
 				
 			}
 			conn.close();
@@ -89,47 +111,10 @@
 			System.err.println(e);
 		}
         %>
-        
-        
-        
 
-            <!-- Game Details -->
-<!--             <div class="gameDetailsSection"><div class="gameDetailsSectionLeft"><div class="imageDetails">
-			<img src="images/games/apexLegends.png">
-			<button class="primaryButton" href="#">Purchase ($49.99)</button>
-			
-			</div></div><div class="gameDetailsSectionRight"><div class="gameDetailsDescription">
-
-			<h3>Metro Exodus</h3>
-			<p>Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness. Explore vast, non-linear levels, lose yourself in an immersive, sandbox survival experience, and follow a thrilling story-line that spans an entire year in the Moscow Metro.</p>
-
-			<table class="detailCard"><tr><th>
-			<p><strong>Release Date</strong></p>
-			<p>15 Feb, 2019</p></th><th>
-			<p><strong>Company</strong></p>
-			<p>4A Games</p></th><th>
-			<p class="highlight">Pre-Owned</p>
-                                
-			</th></tr></table></div></div></div> -->
-
-            <!-- Video -->
-            <div class="trailerSection">
-                <div class="trailerCard">
-                    <iframe src="https://www.youtube.com/embed/wx2Irm3ZFz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- Comments -->
-            <div class="commentsSection">
-
-                <!-- Comment Form -->
-                <form class="commentForm">
-
-                    <!-- Name -->
-                    <div class="commentFormName">
-                        <h3>Name</h3>
-                        <input class="textfield" type="text" name="name" placeholder="Enter Name Here">
+            <div class="commentsSection"><form class="commentForm"><div class="commentFormName">
+			<h3>Name</h3>
+			<input class="textfield" type="text" name="name" placeholder="Enter Name Here">
                         
                     </div>
 

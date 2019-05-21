@@ -108,7 +108,7 @@
 		//display message
 		if (countGenre > 0) {
 			out.print("<h1>Game Successfully added!</h1>");
-			out.print("<a href='controlPanel.jsp'>Click here to return to Control Panel");
+			out.print("<a href='admin.jsp'>Click here to return to Dashboard");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error adding game", "Error", JOptionPane.ERROR_MESSAGE);
 		}
