@@ -30,7 +30,7 @@ CREATE TABLE `games` (
     `gameTitle` varchar(60) NOT NULL,
     `Company` varchar(30) NOT NULL,
     `releaseDate` date NOT NULL,
-    `description` varchar(200) NOT NULL,
+    `description` text NOT NULL,
     `price` decimal(10,0) NOT NULL,
     `imageLocation` varchar(100) NOT NULL,
     `preOwned` tinyint(4) NOT NULL,
