@@ -80,7 +80,7 @@ VALUES ('Rust', -- gameTitle
 -- ARK: Survival Evolved
 INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`, `price`, `imageLocation`, `preOwned`, `trailerLocation`, `purchaseLocation`, `creatorID`)
 VALUES ('ARK: Survival Evolved', -- gameTitle
-        'Studio Wildcard, Instinct Games, Efecto Studios, Virtual Basement LLC', -- Company
+        'Studio Wildcard, Instinct Games, Efecto Studios', -- Company
         '2017/08/28', -- releaseDate
         'As a man or woman stranded naked, freezing and starving on the shores of a mysterious island called ARK, you must hunt, harvest resources, craft items, grow crops, research technologies, and build shelters to withstand the elements. Use your cunning and resources to kill or tame & breed the leviathan dinosaurs and other primeval creatures roaming the land, and team up with or prey on hundreds of other players to survive, dominate... and escape!', -- description
         '42', -- price

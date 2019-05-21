@@ -90,7 +90,7 @@
 		int elementsBeingUpdated = 0;
 		
 		// gameTitle
-		if (gameTitle != null) { if (!gameTitle.isBlank()) {
+		if (gameTitle != null) { if (!gameTitle.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
@@ -101,7 +101,7 @@
 		}}
 
 		// description
-		if (description != null) { if (!description.isBlank()) {
+		if (description != null) { if (!description.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
@@ -112,7 +112,7 @@
 		}}
 		
 		// company
-		if (company != null) { if (!company.isBlank()) {
+		if (company != null) { if (!company.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
@@ -123,7 +123,7 @@
 		}}
 		
 		// releaseDate
-		if (releaseDate != null) { if (!releaseDate.isBlank()) {
+		if (releaseDate != null) { if (!releaseDate.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
@@ -145,7 +145,7 @@
 		}
 		
 		// trailerLocation
-		if (trailerLocation != null) { if (!trailerLocation.isBlank()) {
+		if (trailerLocation != null) { if (!trailerLocation.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
@@ -156,7 +156,7 @@
 		}}
 		
 		// purchaseLocation
-		if (purchaseLocation != null) { if (!purchaseLocation.isBlank()) {
+		if (purchaseLocation != null) { if (!purchaseLocation.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
@@ -167,7 +167,7 @@
 		}}
 		
 		// imageLocation
-		if (imageLocation != null) { if (!imageLocation.isBlank()) {
+		if (imageLocation != null) { if (!imageLocation.isEmpty()) {
 			if (elementsBeingUpdated > 0) {
 				sqlGameUpdate += ",";
 			}
