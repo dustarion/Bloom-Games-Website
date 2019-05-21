@@ -160,7 +160,7 @@ INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`,
 VALUES ('Subnautica ', -- gameTitle
         'Unknown Worlds Entertainment', -- Company
         '2018/01/23', -- releaseDate
-        'Subnautica is an underwater adventure game set on an alien ocean planet. A massive, open world full of wonder and peril awaits you!', -- description
+        'Subnautica is an underwater adventure game set on an alien ocean planet. A massive, open world full of wonder and peril awaits you! Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.', -- description
         '22', -- price
         'images/games/sub.jpg', -- imageLocation
         '1', -- preOwned
