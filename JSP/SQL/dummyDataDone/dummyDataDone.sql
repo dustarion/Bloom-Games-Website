@@ -108,7 +108,7 @@ INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`,
 VALUES ("PLAYERUNKNOWN'S BATTLEGROUNDS", -- gameTitle
         'PUBG Corporation', -- Company
         '2017/12/21', -- releaseDate
-        "PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person standing. PLAYERUNKNOWN, aka Brendan Greene, is a pioneer of the battle royale genre and the creator of the battle royale game modes in the ARMA series and H1Z1: King of the Kill. At PUBG Corp., Greene is working with a veteran team of developers to make PUBG into the world's premiere battle royale experience.", -- description
+        "PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person standing. PLAYERUNKNOWN, aka Brendan Greene, is a pioneer of the battle royale genre and the creator of the battle royale game modes in the ARMA series and H1Z1: King of the Kill.", -- description
         '34.99', -- price
         'images/games/pubg.jpg', -- imageLocation
         '0', -- preOwned
