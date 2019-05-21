@@ -162,7 +162,7 @@ VALUES ('Subnautica ', -- gameTitle
         '2018/01/23', -- releaseDate
         'Subnautica is an underwater adventure game set on an alien ocean planet. A massive, open world full of wonder and peril awaits you!', -- description
         '22', -- price
-        'images/games/sub', -- imageLocation
+        'images/games/sub.jpg', -- imageLocation
         '1', -- preOwned
         'https://www.youtube.com/watch?v=Rz2SNm8VguE', -- trailerLocation
         'https://store.steampowered.com/app/264710/Subnautica/', -- purchaseLocation
