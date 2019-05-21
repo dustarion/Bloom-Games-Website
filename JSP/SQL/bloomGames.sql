@@ -28,10 +28,10 @@ SET character_set_client = utf8mb4 ;
 CREATE TABLE `games` (
     `gameID` int(11) NOT NULL AUTO_INCREMENT,
     `gameTitle` varchar(60) NOT NULL,
-    `Company` varchar(30) NOT NULL,
+    `Company` varchar(100) NOT NULL,
     `releaseDate` date NOT NULL,
     `description` text NOT NULL,
-    `price` decimal(10,0) NOT NULL,
+    `price` decimal(10,2) NOT NULL,
     `imageLocation` varchar(100) NOT NULL,
     `preOwned` tinyint(4) NOT NULL,
     `trailerLocation` varchar(100) NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `comments` (
     `commenterName` varchar(50) NOT NULL,
     `rating` int(11) NOT NULL,
     `date` datetime NOT NULL,
-    `comment` varchar(150) NOT NULL,
+    `comment` text NOT NULL,
     PRIMARY KEY (`commentID`)
 )   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

@@ -105,10 +105,10 @@ VALUES ('Counter-Strike: Global Offensive', -- gameTitle
 
 -- PLAYERUNKNOWN'S BATTLEGROUNDS        
 INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`, `price`, `imageLocation`, `preOwned`, `trailerLocation`, `purchaseLocation`, `creatorID`)
-VALUES ("PLAYERUNKNOWN'S BATTLEGROUNDS", -- gameTitle
+VALUES ("PUBG", -- gameTitle
         'PUBG Corporation', -- Company
         '2017/12/21', -- releaseDate
-        "PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person standing. PLAYERUNKNOWN, aka Brendan Greene, is a pioneer of the battle royale genre and the creator of the battle royale game modes in the ARMA series and H1Z1: King of the Kill. At PUBG Corp., Greene is working with a veteran team of developers to make PUBG into the world's premiere battle royale experience.", -- description
+        "PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person standing. PLAYERUNKNOWN, aka Brendan Greene, is a pioneer of the battle royale genre and the creator of the battle royale game modes in the ARMA series and H1Z1: King of the Kill.", -- description
         '34.99', -- price
         'images/games/pubg.jpg', -- imageLocation
         '0', -- preOwned
@@ -131,12 +131,12 @@ VALUES ('Apex Legends', -- gameTitle
         
 -- Battlefield 5
 INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`, `price`, `imageLocation`, `preOwned`, `trailerLocation`, `purchaseLocation`, `creatorID`)
-VALUES ('Battlefield™ V', -- gameTitle
+VALUES ('Battlefield V', -- gameTitle
         'DICE', -- Company
         '2018/11/19', -- releaseDate
         'The Battlefield series goes back to its roots in a never-before-seen portrayal of World War 2. Take on physical, all-out multiplayer with your squad in modes like the vast Grand Operations and the cooperative Combined Arms, or witness human drama set against global combat in the single player War Stories. As you fight in epic, unexpected locations across the globe, enjoy the richest and most immersive Battlefield yet. Now also includes Firestorm – Battle Royale, reimagined for Battlefield.', -- description
         '34.95', -- price
-        'images/games/bf5', -- imageLocation
+        'images/games/bf5.jpg', -- imageLocation
         '0', -- preOwned
         'https://www.youtube.com/watch?v=fb1MR85XFOc', -- trailerLocation
         'https://www.origin.com/sgp/en-us/store/battlefield/battlefield-v/interstitial', -- purchaseLocation
@@ -149,7 +149,7 @@ VALUES ('DAYZ', -- gameTitle
         '2018/12/14', -- releaseDate
         'The post-soviet country of Chernarus is struck by an unknown virus, turning the majority population into frenzied infected. Fighting over resources has bred a hostile mentality among survivors, driving what’s left of humanity to collapse. You are one of the few immune to the virus - how far will you go to survive?', -- description
         '49.99', -- price
-        'images/games/dayz', -- imageLocation
+        'images/games/dayz.jpg', -- imageLocation
         '0', -- preOwned
         'https://www.youtube.com/watch?v=Z8YxinOKNss', -- trailerLocation
         'https://store.steampowered.com/app/221100/DayZ/', -- purchaseLocation
@@ -160,9 +160,9 @@ INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`,
 VALUES ('Subnautica ', -- gameTitle
         'Unknown Worlds Entertainment', -- Company
         '2018/01/23', -- releaseDate
-        'Subnautica is an underwater adventure game set on an alien ocean planet. A massive, open world full of wonder and peril awaits you!', -- description
+        'Subnautica is an underwater adventure game set on an alien ocean planet. A massive, open world full of wonder and peril awaits you! Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.', -- description
         '22', -- price
-        'images/games/sub', -- imageLocation
+        'images/games/sub.jpg', -- imageLocation
         '1', -- preOwned
         'https://www.youtube.com/watch?v=Rz2SNm8VguE', -- trailerLocation
         'https://store.steampowered.com/app/264710/Subnautica/', -- purchaseLocation
@@ -175,7 +175,7 @@ VALUES ('Dota 2', -- gameTitle
         '2013/07/09', -- releaseDate
         "The most-played game on Steam. Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has truly taken on a life of its own.", -- description
         '10', -- price
-        'images/games/dota2', -- imageLocation
+        'images/games/dota2.jpg', -- imageLocation
         '0', -- preOwned
         'https://www.youtube.com/watch?v=SmnqsdeHFT0', -- trailerLocation
         'https://store.steampowered.com/app/570/Dota_2/', -- purchaseLocation
@@ -188,12 +188,111 @@ VALUES ('Stellaris', -- gameTitle
         '2016/05/09', -- releaseDate
         'Explore and discover a spectacular and ever-changing universe! Paradox Development Studio, makers of the Europa Universalis and Crusader Kings series, and publishers of the best-selling Cities: Skylines, presents Stellaris, advancing the genre of grand strategy to the very edges of the universe.', -- description
         '39', -- price
-        'images/games/stellaris', -- imageLocation
+        'images/games/stellaris.jpg', -- imageLocation
         '1', -- preOwned
         'https://www.youtube.com/watch?v=zL0kemiI0yc', -- trailerLocation
         'https://store.steampowered.com/app/281990/Stellaris/', -- purchaseLocation
         '1');   -- creatorID
         
+-- Populating game_genre table 
+
+-- No Man's Sky adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '1' -- gameID
+        );  
+
+-- Monster Hunter World adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '2' -- gameID
+        );  
+        
+-- Rust adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '3' -- gameID
+        );  
+        
+-- Rust survival
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '3' -- gameID
+        );  
+
+-- ARKSE adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '4' -- gameID
+        );  
+
+-- ARKSE survival
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '4' -- gameID
+        );  
+
+-- CSGO shooter 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '5' -- gameID
+        );  
+
+-- CSGO strategy 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '5' -- gameID
+        );  
+        
+-- PUBG shooter
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '6' -- gameID
+        );  
+        
+-- PUBG strategy
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '6' -- gameID
+        );  
+
+-- APEX shooter
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '7' -- gameID
+        );  
+        
+-- BF5 shooter
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '8' -- gameID
+        );  
+        
+-- DAYZ survival 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '9' -- gameID
+        );  
+        
+-- Subnautica survival 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '10' -- gameID
+		);
+        
+-- Dota2 strategy
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '11' -- gameID
+        );
+        
+-- Stellaris strategy
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '12' -- gameID
+        );
+
+
 
         
 
