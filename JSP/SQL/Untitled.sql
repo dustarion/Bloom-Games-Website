@@ -53,15 +53,23 @@ VALUES ('Monster Hunter World', -- gameTitle
 -- SearchQuery=test
 -- genreID=5
 -- PreOwned=PreOwned
-SELECT * FROM db1.games;
-SELECT * FROM db1.genre;
+
+SELECT * FROM db1.games; -- 20 21
+SELECT * FROM db1.genre; -- 5678
+SELECT * FROM db1.game_genre;
 
 -- Substring Search
 SELECT * FROM db1.games WHERE (gameTitle LIKE '%No%');
 
-SELECT * FROM db1.games WHERE (genre_game.genreID = 5);
-        
-        
+-- Select From Genre
+SELECT gameID FROM db1.game_genre WHERE (genreID = 5);
+
+SELECT gameTitle FROM db1.games
+WHERE value IN (
+	SELECT gameID FROM db1.game_genre WHERE (genreID = 5)
+);
+
+
         
         
         

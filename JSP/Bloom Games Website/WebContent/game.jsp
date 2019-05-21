@@ -112,7 +112,10 @@
 		}
         %>
 
-            <div class="commentsSection"><form class="commentForm"><div class="commentFormName">
+            <div class="commentsSection">
+            
+            <form class="commentForm" action="?gameID=20">
+            <div class="commentFormName">
 			<h3>Name</h3>
 			<input class="textfield" type="text" name="name" placeholder="Enter Name Here">
                         
@@ -148,10 +151,12 @@
                 </div>
 
 
-                <!-- Database Updates This As Needed -->
-                <h2>3 Comments</h2>
-                
-                <!-- Comment Cards Load Here -->
+				<!-- Load From Database -->
+        		<%
+     				// Initialise Variables
+    				//String gameIDString = request.getParameter("gameID");
+                	//<h2>3 Comments</h2>
+				%>
 
                 <!-- Comment -->
                 <div class="commentCard">
