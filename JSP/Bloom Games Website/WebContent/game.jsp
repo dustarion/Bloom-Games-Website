@@ -114,32 +114,19 @@
 
             <div class="commentsSection">
             
-            <form class="commentForm" action="?gameID=20">
+            <%
+            out.print("<form class=\"commentForm\" action=\"?gameID=" + gameID + "\">");
+            %>
             <div class="commentFormName">
 			<h3>Name</h3>
 			<input class="textfield" type="text" name="name" placeholder="Enter Name Here">
                         
-                    </div>
-
-                    <!-- 5 Star Rating -->
-                    <div class="commentFormRating">
-                        <h3>Rating</h3>
-
-                        <div class="rating">
-                        <div class="stars">
-                            <input class="star star-5" id="star-5" type="radio" name="star"/>
-                            <label class="star star-5" for="star-5"></label>
-                            <input class="star star-4" id="star-4" type="radio" name="star"/>
-                            <label class="star star-4" for="star-4"></label>
-                            <input class="star star-3" id="star-3" type="radio" name="star"/>
-                            <label class="star star-3" for="star-3"></label>
-                            <input class="star star-2" id="star-2" type="radio" name="star"/>
-                            <label class="star star-2" for="star-2"></label>
-                            <input class="star star-1" id="star-1" type="radio" name="star"/>
-                            <label class="star star-1" for="star-1"></label>
-                        </div>
-                        </div>
-                    </div>
+			</div>
+			<div class="commentFormName">
+			<h3>Rating</h3>
+			<input class="textfield" type="number" min="0" max="5" value="1" step="1" name="rating" placeholder="Enter a rating from 1-5 here">
+                        
+			</div>
 
                     <!-- Comment Box -->
                     <div class="commentBox">
@@ -212,18 +199,6 @@
 
         </div>
 
-
-            <!-- Apex Legends -->
-            <!-- <div class="gameCard"> -->
-                <!-- Game Thumbnail -->
-                <!-- <img src="images/games/apexLegends.png"> -->
-
-                <!-- <h3>Apex Legends</h3> -->
-                <!-- <p>Conquer with character in the next evolution of Battle Royale</p> -->
-                <!-- Buttons -->
-                <!-- <button class="primaryButton" href="#">Get the Game</button> -->
-                <!-- <button class="secondaryButton" href="#">Watch the Trailer</button> -->
-            <!-- </div> -->
 
         <footer>
             <!-- © 2019 ™Bloom Games -->
