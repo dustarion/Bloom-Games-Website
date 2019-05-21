@@ -61,6 +61,8 @@ SELECT * FROM db1.game_genre;
 -- Substring Search
 SELECT * FROM db1.games WHERE (gameTitle LIKE '%No%') AND (preOwned = 1);
 
+SELECT * FROM db1.games WHERE (gameTitle LIKE '%')
+
 -- Select From Genre
 SELECT gameID FROM db1.game_genre WHERE (genreID = 5);
 

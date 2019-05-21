@@ -69,7 +69,7 @@
 								}
 								conn.close();
 							}catch (Exception e) {
-								
+							
 							}
 						%>
                         
@@ -184,54 +184,12 @@
 		                out.print("</div>");
 					}
 				}
-        		
-        		
-        		
-				// Genre Header
-				/* String genreTitle = "";
-				if ((genreID != null) && (!genreID.isBlank())) {
-					
-					// Get Genre Header
-					String getGenreNameSqlStr = "SELECT * FROM genre WHERE (genreID = " + genreID+ ");";
-					ResultSet rsGenre = stmt.executeQuery(getGenreNameSqlStr);
-					while(rsGenre.next()){
-						out.print("<h2>" + rsGenre.getString("genreName") + "</h2>");
-					}
-					conn.close();
-				} else {
-					out.print("<h2>All</h2>");
-				} */
 				conn.close();
         	} catch (Exception e) {
     			out.print(e);
     		}
         	
         	%>
-        
-        	<!-- http://localhost:8080/Bloom_Games_Website/search.jsp?SearchQuery=test&genreID=5&PreOwned=PreOwned -->
-
-            <!-- Genre Text -->
-            <!-- <h2>Fantasy</h2> -->
-
-            <!-- Apex Legends -->
-<!--             <div class="gameCard">
-                <img src="images/games/apexLegends.png">
-
-                <h3>Apex Legends</h3>
-                <p>Conquer with character in the next evolution of Battle Royale</p>
-                <button class="primaryButton" href="#">Get the Game</button>
-                <button class="secondaryButton" href="#">Watch the Trailer</button>
-            </div>
-
-            Apex Legends
-            <div class="gameCard">
-                <img src="images/games/apexLegends.png">
-
-                <h3>Apex Legends</h3>
-                <p>Conquer with character in the next evolution of Battle Royale</p>
-                <button class="primaryButton" href="#">Get the Game</button>
-                <button class="secondaryButton" href="#">Watch the Trailer</button>
-            </div> -->
 
         </div>
 
