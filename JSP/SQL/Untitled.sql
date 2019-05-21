@@ -1,4 +1,8 @@
 SELECT * From db1.games;
+SELECT * From db1.comments;
+
+
+SELECT * From db1.game_comment;
 
 SELECT * FROM db1.games WHERE gameID = 20;
 
@@ -13,10 +17,10 @@ INSERT INTO `db1`.`genre` (`genreName`) VALUES ('Strategy');
 SELECT * From db1.genre;
 
 
-ALTER TABLE db1.games
-DROP COLUMN description;
-ALTER TABLE db1.games
-ADD description text;
+ALTER TABLE db1.comments
+DROP COLUMN comment;
+ALTER TABLE db1.comments
+ADD comment text;
 
 
 -- No Man's Sky
@@ -79,14 +83,15 @@ JOIN  db1.genre ge ON gg.genreID = gg.genreID
 
 
 -- SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
--- FROM Orders
+-- FROM Ordersgame_genregame_comment
 -- INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
-        
-        
-        
-        
-        
-        
+
+SELECT * FROM db1.game_comment
+SELECT * FROM db1.comments
+        comments
+SELECT db1.comments.commenterName, db1.comments.rating, db1.comments.date, db1.comments.comment
+FROM db1.comments
+JOIN db1.comments ON db1.comments.commentID=db1.game_comment.commentID;
         
         
         
