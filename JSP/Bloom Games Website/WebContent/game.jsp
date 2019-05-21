@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*"%>
+<%@ page import="java.util.Date" %>
 
 <!DOCTYPE html>
 <html>
@@ -117,20 +118,27 @@
             <form class="commentForm">
             <div class="commentFormName">
 			<h3>Name</h3>
-			<input class="textfield" type="text" name="name" placeholder="Enter Name Here">
+			<input class="textfield" type="text" name="name" placeholder="Enter Name Here" required>
                         
 			</div>
 			<div class="commentFormName">
 			<h3>Rating</h3>
-			<input class="textfield" type="number" min="0" max="5" value="1" step="1" name="rating" placeholder="Enter a rating from 1-5 here">
+			<input class="textfield" type="number" min="0" max="5" value="5" step="1" name="rating" placeholder="Enter a rating from 1-5 here" required>
                         
 			</div>
-			
-			<input class="hidden" type="text" name="gameID" placeholder="" value="20">
+			<style type="text/css">
+                        .hidden {
+                            display: none;
+                        }
+			 </style>
+			 
+			 <%
+			 	out.print("<input class=\"hidden\" type=\"text\" name=\"gameID\" value=\"" + gameID + "\">");
+			 %>
 
                     <!-- Comment Box -->
                     <div class="commentBox">
-                        <textarea name="Text1" cols="40" rows="5" class="commentfield" type="textarea" name="comment" placeholder="Write Your Comment Here"></textarea>
+                        <textarea name="comment" cols="40" rows="5" class="commentfield" type="textarea" name="comment" placeholder="Write Your Comment Here" required></textarea>
                     </div>
 
                     <!-- Post Button -->
@@ -141,64 +149,111 @@
 				<!-- Load From Database -->
         		<%
      				// Initialise Variables
-    				//String gameIDString = request.getParameter("gameID");
-                	//<h2>3 Comments</h2>
+        			String commentName = request.getParameter("name");
+        			String commentRating = request.getParameter("rating");
+        			String commentText = request.getParameter("comment");
+        			
+        			if (commentText != null) {
+	        			try{
+							//Step1: Load JDBC Driver
+							Class.forName("com.mysql.jdbc.Driver");
+				
+							// Step 2: Define Connection URL
+							String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+				
+							// Step 3: Establish connection to URL
+							Connection conn = DriverManager.getConnection(connURL);
+							// Step 4: Create Statement object
+							Statement stmt = conn.createStatement();
+				
+							String sqlgenreName = "INSERT INTO comments (commenterName, rating, date, comment) VALUES ( ?, ?, ?, ?)";
+							PreparedStatement ps = conn.prepareStatement(sqlgenreName, PreparedStatement.RETURN_GENERATED_KEYS);
+							ps.setString(1, commentName);
+							ps.setString(2, commentRating);
+							ps.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+							ps.setString(4, commentText);
+							ps.executeUpdate();
+							
+							ResultSet rs;
+							java.math.BigDecimal iDColVar;
+							int commentID = 0;
+							
+							rs = ps.getGeneratedKeys();
+							
+							while (rs.next()) {
+								  java.math.BigDecimal idColVar = rs.getBigDecimal(1);     
+								                                      // Get automatically generated key 
+								                                      // value
+								  System.out.println("automatically generated key value = " + idColVar);
+									commentID = idColVar.intValue();
+								}
+							
+							// Update Game_Comment
+							String sqlgenreName2 = "INSERT INTO game_comment (commentID, gameCommentID) VALUES (?, ?)";
+							PreparedStatement ps2 = conn.prepareStatement(sqlgenreName2);
+							ps2.setInt(1, commentID);
+							ps2.setInt(2, gameID);
+							ps2.executeUpdate();
+							
+							
+							conn.close();
+						} catch (Exception e) {
+							System.err.println(e);
+						}
+        			}
+        			
 				%>
+				
+				<h3>Comments</h3>
+				
+				<!-- Load From Database -->
+        		<%
+        		try{
+         			//Step1: Load JDBC Driver
+					Class.forName("com.mysql.jdbc.Driver");
+					
+					// Step 2: Define Connection URL
+					String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
+		
+					// Step 3: Establish connection to URL
+					Connection conn = DriverManager.getConnection(connURL);
+					// Step 4: Create Statement object
+					Statement stmt = conn.createStatement();
+        		
+					String sqlGameComments = "SELECT * FROM game_comment WHERE gameCommentID = '" + gameID + "'";
+					ResultSet rsGC = stmt.executeQuery(sqlGameComments);
+					
+					while(rsGC.next()){
+						String currentCommentID = rsGC.getString("commentID");
+						
+						System.err.println(currentCommentID);
+						
+						// Get Commentcard
+						String sqlGetCommentID = "SELECT * from comments WHERE commentID =\"" + currentCommentID + "\"";
+						Statement stmt3 = conn.createStatement();
+						ResultSet rsComment = stmt3.executeQuery(sqlGetCommentID);
+						while(rsComment.next()){
+							rsComment.first();
+							out.print("<div class=\"commentCard\">");
+							out.print("<h3>" + rsComment.getString("commenterName") + "</h3>");
+							out.print("<p><strong>Rating: </strong> " + rsComment.getString("rating") + "</p>");
+							out.print("<p class=\"date\">" + rsComment.getString("date") + "</p>");
+							out.print("<p>" + rsComment.getString("comment") + "</p>");
+							out.print("</div>");
+						}
+						
+						
+						
+					}
+					
+                
+        		} catch (Exception e) {
+					System.err.println(e);
+				}
+                %>
 
-                <!-- Comment -->
-                <div class="commentCard">
-                    <h3>Dalton Prescott</h3>
-
-                    <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-
-                    <p class="date">12/07/2018</p>
-                    <p>The Metro series so far has been defined by its claustrophobic setting and worldview. After nuclear war ravages Moscow in 2013, survivors who flee to the underground tunnels of the Metro system form their own independent states and societies, all in a bid to keep on living. That element of survival against the odds in a dangerous environment, rarely going outside into the irradiated city ruins, is inseparable from the franchise. So what happens when the series takes a step outside, hops on a train heading out of the tunnels, and goes above ground and into the heart of Russia?</p>
-                </div>
-
-                <!-- Comment -->
-                <div class="commentCard">
-                    <h3>Dalton Prescott</h3>
-
-                    <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-
-                    <p class="date">12/07/2018</p>
-                    <p>The Metro series so far has been defined by its claustrophobic setting and worldview. After nuclear war ravages Moscow in 2013, survivors who flee to the underground tunnels of the Metro system form their own independent states and societies, all in a bid to keep on living. That element of survival against the odds in a dangerous environment, rarely going outside into the irradiated city ruins, is inseparable from the franchise. So what happens when the series takes a step outside, hops on a train heading out of the tunnels, and goes above ground and into the heart of Russia?</p>
-                </div>
-
-                <!-- Comment -->
-                <div class="commentCard">
-                    <h3>Dalton Prescott</h3>
-
-                    <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-
-                    <p class="date">12/07/2018</p>
-                    <p>The Metro series so far has been defined by its claustrophobic setting and worldview. After nuclear war ravages Moscow in 2013, survivors who flee to the underground tunnels of the Metro system form their own independent states and societies, all in a bid to keep on living. That element of survival against the odds in a dangerous environment, rarely going outside into the irradiated city ruins, is inseparable from the franchise. So what happens when the series takes a step outside, hops on a train heading out of the tunnels, and goes above ground and into the heart of Russia?</p>
-                </div>
-
-
+				
             </div>
-
-
-        </div>
-
 
         <footer>
             <!-- © 2019 ™Bloom Games -->
