@@ -27,18 +27,18 @@
         <div class="sidenav">
             <h1>Admin Panel</h1>
 
-            <a href="admin.html"><i class="fas fa-columns"></i> Dashboard</a>
+            <a href="admin.jsp"><i class="fas fa-columns"></i> Dashboard</a>
 
             <p>Games</p>
-            <a href="adminPages/addGames.html"><i class="fas fa-pen"></i> Add Games</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Games</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Games</a>
+            <a href="addGames.jsp"><i class="fas fa-pen"></i> Add Games</a>
+            <a href="updateGame.jsp"><i class="fas fa-cog"></i> Update Games</a>
+            <a href="deleteGame.jsp"><i class="fas fa-trash"></i> Delete Games</a>
 
             <p>Genres</p>
-            <a href="#"><i class="fas fa-pen"></i> Add Genres</a>
-            <a href="#"><i class="fas fa-cog"></i> Update Genres</a>
-            <a href="#"><i class="fas fa-trash"></i> Delete Genres</a>
-
+            <a href="addGenre.jsp"><i class="fas fa-pen"></i> Add Genres</a>
+            <a href="updateGenre.jsp"><i class="fas fa-cog"></i> Update Genres</a>
+            <a href="deleteGenre.jsp"><i class="fas fa-trash"></i> Delete Genres</a>
+            
             <a class="logout" href="index.jsp">Logout <i class="fas fa-sign-in-alt"></i></a>
         </div>
 
