@@ -42,8 +42,8 @@
 				String username = request.getParameter("username");
 				String password = request.getParameter("password");
 				
-				if (username != null) { if (!username.isBlank()) {
-				if (password != null) { if (!password.isBlank()) {
+				if (username != null) { if (!username.isEmpty()) {
+				if (password != null) { if (!password.isEmpty()) {
 					try{
 						//Step1: Load JDBC Driver
 						Class.forName("com.mysql.jdbc.Driver");
