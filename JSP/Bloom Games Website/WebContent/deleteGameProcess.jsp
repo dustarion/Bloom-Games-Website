@@ -44,12 +44,12 @@
 		ps.executeUpdate();
 		
 		///display message
-		out.print("<h1>Sucess</h1>");
-		out.print("<a href='admin.jsp'>Click here to return to Dashboard");
+		response.sendRedirect("result.jsp");
 
 		conn.close();
 	} catch (Exception e) {
 		out.print(e);
+		response.sendRedirect("result.jsp");
 	}
 %>
 

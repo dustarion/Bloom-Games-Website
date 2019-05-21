@@ -90,11 +90,8 @@
 				}
 				conn.close();
 			}catch (Exception e) {
-			
+				
 			}
-            
-            
-            
             %>
 
         </div>

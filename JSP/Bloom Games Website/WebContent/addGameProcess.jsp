@@ -111,11 +111,13 @@
 			out.print("<a href='admin.jsp'>Click here to return to Dashboard");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error adding game", "Error", JOptionPane.ERROR_MESSAGE);
+			response.sendRedirect("result.jsp");
 		}
 
 		conn.close();
 	} catch (Exception e) {
 		out.print(e);
+		response.sendRedirect("result.jsp");
 	}
 %>
 

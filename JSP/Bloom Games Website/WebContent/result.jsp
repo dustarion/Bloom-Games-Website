@@ -43,8 +43,7 @@
         </div>
 
         <div class="adminSection">
-            <h3>Success</h3>
-            <p>Sucessfully Added Game</p>
+            <a href="admin.jsp"><h3>Back To Dashboard</h3></a>
 
         </div>
         
