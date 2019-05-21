@@ -69,7 +69,7 @@
 								}
 								conn.close();
 							}catch (Exception e) {
-							
+								
 							}
 						%>
                         
@@ -110,12 +110,12 @@
 				// Step 4: Create Statement object
 				Statement stmt = conn.createStatement();	
 
-				String gamesSqlStr = "SELECT * FROM games";
+				String gamesSqlStr = "SELECT * FROM games ";
 				
 				if (searchQuery != null) {
 					gamesSqlStr += "WHERE (gameTitle LIKE '%" + searchQuery + "%') ";
 				} else {
-					gamesSqlStr += "WHERE (gameTitle LIKE '%man%') ";
+					gamesSqlStr += "WHERE (gameTitle LIKE '%') ";
 				}
 				
 				if (preOwned != null) {
@@ -138,7 +138,7 @@
 					
 					boolean skip = false;
 					
-					if (genreID != null) {
+					if (genreID != "") {
 						
 						skip = true;
 								
@@ -146,7 +146,8 @@
 						
 						// Check if the genre matches
 						String getGenreSqlStr = "SELECT * FROM game_genre WHERE (gameID = " + currentGameID+ ");";
-						ResultSet rsGenre = stmt.executeQuery(getGenreSqlStr);
+						Statement stmt2 = conn.createStatement();	
+						ResultSet rsGenre = stmt2.executeQuery(getGenreSqlStr);
 						
 						while(rsGenre.next()){
 							if (rsGenre.getString("genreID").equals(genreID)) {
@@ -200,6 +201,7 @@
 				} else {
 					out.print("<h2>All</h2>");
 				} */
+				conn.close();
         	} catch (Exception e) {
     			out.print(e);
     		}
