@@ -59,18 +59,26 @@ SELECT * FROM db1.genre; -- 5678
 SELECT * FROM db1.game_genre;
 
 -- Substring Search
-SELECT * FROM db1.games WHERE (gameTitle LIKE '%No%');
+SELECT * FROM db1.games WHERE (gameTitle LIKE '%No%') AND (preOwned = 1);
 
 -- Select From Genre
 SELECT gameID FROM db1.game_genre WHERE (genreID = 5);
 
-SELECT gameTitle FROM db1.games
-WHERE value IN (
-	SELECT gameID FROM db1.game_genre WHERE (genreID = 5)
-);
+-- Compound Searcg
+SELECT * FROM db1.games ga
+JOIN  db1.game_genre gg ON ga.gameID = gg.gameID
+JOIN  db1.genre ge ON gg.genreID = gg.genreID
 
 
-        
+-- WHERE (
+-- 	
+-- );
+
+
+
+-- SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+-- FROM Orders
+-- INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
         
         
         

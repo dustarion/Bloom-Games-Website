@@ -8,7 +8,7 @@
     <head>
     
     	<meta charset="ISO-8859-1">
-		<title>Login</title>
+		<title>Search</title>
 		
         <!-- CSS File -->
         <link rel="stylesheet" type="text/css" href="styles.css">
@@ -45,6 +45,7 @@
                 <div class="selectBox">
                 Select Genre :
                 <select name="genreID">
+                <option value="">All</option>
 
                    		<!-- Load from Database -->
                         <%
@@ -91,12 +92,11 @@
         
         	<%
         	try {
+        		
         		// Initialise Variables
+        		String searchQuery = request.getParameter("SearchQuery");
         		String genreID = request.getParameter("genreID");
-        	
-        		// SearchQuery=test
-				// genreID=5
-				// PreOwned=PreOwned
+        		String preOwned = request.getParameter("PreOwned");
 				
 				//Step1: Load JDBC Driver
 				Class.forName("com.mysql.jdbc.Driver");
@@ -108,10 +108,86 @@
 				Connection conn = DriverManager.getConnection(connURL);
 		
 				// Step 4: Create Statement object
-				Statement stmt = conn.createStatement();
+				Statement stmt = conn.createStatement();	
+
+				String gamesSqlStr = "SELECT * FROM games";
+				
+				if (searchQuery != null) {
+					gamesSqlStr += "WHERE (gameTitle LIKE '%" + searchQuery + "%') ";
+				} else {
+					gamesSqlStr += "WHERE (gameTitle LIKE '%man%') ";
+				}
+				
+				if (preOwned != null) {
+					 if (preOwned.equals("1")) {
+						 // PreOwned
+						 gamesSqlStr += "AND (preOwned = 1);";
+						 
+					 } else {
+						 // New
+						 gamesSqlStr += "AND (preOwned = 0);";
+					 }
+				} else {
+					// Cap Off the SQL
+					gamesSqlStr += ";";
+				}
+						
+				ResultSet rs = stmt.executeQuery(gamesSqlStr);
+				
+				while(rs.next()){
+					
+					boolean skip = false;
+					
+					if (genreID != null) {
+						
+						skip = true;
+								
+						String currentGameID = rs.getString("gameID");
+						
+						// Check if the genre matches
+						String getGenreSqlStr = "SELECT * FROM game_genre WHERE (gameID = " + currentGameID+ ");";
+						ResultSet rsGenre = stmt.executeQuery(getGenreSqlStr);
+						
+						while(rsGenre.next()){
+							if (rsGenre.getString("genreID").equals(genreID)) {
+								skip = false;
+							}
+						}
+						
+					}
+					
+					if (!skip) {
+					
+						// Load Game
+		            	out.print("<div class=\"gameCard\">");
+						
+		            	// Thumbnail
+		                out.print("<img src=\"" + rs.getString("imageLocation") + "\">");
+
+		                out.print("<h3>" + rs.getString("gameTitle") + "</h3>");
+		                // http://localhost:8080/Bloom_Games_Website/Wenimages/games/nomanssky.jpg
+		                
+		                String shortDesc = rs.getString("description").substring(0, 247);
+		                shortDesc += "...";
+		                // Shorten the string to fit within rs.getString("imageLocation")
+		                out.print("<p>" + shortDesc + "</p>");
+		                
+		                // Create Link With gameId
+		                
+		                //updateGenreProcess.jsp?genreID=6
+		                String gameLink = "game.jsp?gameID=" + rs.getString("gameID");
+		                
+		                // Buttons
+		                out.print("<a href=\"" + gameLink + "\" class=\"primaryButton\">Get the Game</a>");
+		                
+		                out.print("</div>");
+					}
+				}
+        		
+        		
         		
 				// Genre Header
-				String genreTitle = "";
+				/* String genreTitle = "";
 				if ((genreID != null) && (!genreID.isBlank())) {
 					
 					// Get Genre Header
@@ -123,7 +199,7 @@
 					conn.close();
 				} else {
 					out.print("<h2>All</h2>");
-				}
+				} */
         	} catch (Exception e) {
     			out.print(e);
     		}
@@ -136,28 +212,24 @@
             <!-- <h2>Fantasy</h2> -->
 
             <!-- Apex Legends -->
-            <div class="gameCard">
-                <!-- Game Thumbnail -->
+<!--             <div class="gameCard">
                 <img src="images/games/apexLegends.png">
 
                 <h3>Apex Legends</h3>
                 <p>Conquer with character in the next evolution of Battle Royale</p>
-                <!-- Buttons -->
                 <button class="primaryButton" href="#">Get the Game</button>
                 <button class="secondaryButton" href="#">Watch the Trailer</button>
             </div>
 
-            <!-- Apex Legends -->
+            Apex Legends
             <div class="gameCard">
-                <!-- Game Thumbnail -->
                 <img src="images/games/apexLegends.png">
 
                 <h3>Apex Legends</h3>
                 <p>Conquer with character in the next evolution of Battle Royale</p>
-                <!-- Buttons -->
                 <button class="primaryButton" href="#">Get the Game</button>
                 <button class="secondaryButton" href="#">Watch the Trailer</button>
-            </div>
+            </div> -->
 
         </div>
 
