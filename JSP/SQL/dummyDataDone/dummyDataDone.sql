@@ -105,7 +105,7 @@ VALUES ('Counter-Strike: Global Offensive', -- gameTitle
 
 -- PLAYERUNKNOWN'S BATTLEGROUNDS        
 INSERT INTO `db1`.`games` (`gameTitle`, `Company`, `releaseDate`, `description`, `price`, `imageLocation`, `preOwned`, `trailerLocation`, `purchaseLocation`, `creatorID`)
-VALUES ("PLAYERUNKNOWN'S BATTLEGROUNDS", -- gameTitle
+VALUES ("PUBG", -- gameTitle
         'PUBG Corporation', -- Company
         '2017/12/21', -- releaseDate
         "PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person standing. PLAYERUNKNOWN, aka Brendan Greene, is a pioneer of the battle royale genre and the creator of the battle royale game modes in the ARMA series and H1Z1: King of the Kill.", -- description
@@ -194,6 +194,105 @@ VALUES ('Stellaris', -- gameTitle
         'https://store.steampowered.com/app/281990/Stellaris/', -- purchaseLocation
         '1');   -- creatorID
         
+-- Populating game_genre table 
+
+-- No Man's Sky adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '1' -- gameID
+        );  
+
+-- Monster Hunter World adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '2' -- gameID
+        );  
+        
+-- Rust adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '3' -- gameID
+        );  
+        
+-- Rust survival
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '3' -- gameID
+        );  
+
+-- ARKSE adventure
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('1', -- genreID
+        '4' -- gameID
+        );  
+
+-- ARKSE survival
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '4' -- gameID
+        );  
+
+-- CSGO shooter 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '5' -- gameID
+        );  
+
+-- CSGO strategy 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '5' -- gameID
+        );  
+        
+-- PUBG shooter
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '6' -- gameID
+        );  
+        
+-- PUBG strategy
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '6' -- gameID
+        );  
+
+-- APEX shooter
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '7' -- gameID
+        );  
+        
+-- BF5 shooter
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('2', -- genreID
+        '8' -- gameID
+        );  
+        
+-- DAYZ survival 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '9' -- gameID
+        );  
+        
+-- Subnautica survival 
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('3', -- genreID
+        '10' -- gameID
+		);
+        
+-- Dota2 strategy
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '11' -- gameID
+        );
+        
+-- Stellaris strategy
+INSERT INTO `db1`.`game_genre` (`genreID`, `gameID`)
+VALUES ('4', -- genreID
+        '12' -- gameID
+        );
+
+
 
         
 
