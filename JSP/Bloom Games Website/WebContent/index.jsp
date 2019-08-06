@@ -49,7 +49,7 @@
             <%
             try{
 				//Step1: Load JDBC Driver
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("com.mysql.cj.jdbc.Driver");
 	
 				// Step 2: Define Connection URL
 				String connURL = "jdbc:mysql://localhost/db1?user=root&password=12345&serverTimezone=UTC";
@@ -84,7 +84,7 @@
 		                String gameLink = "game.jsp?gameID=" + rs.getString("gameID");
 		                
 		                // Buttons
-		                out.print("<a href=\"" + gameLink + "\" class=\"primaryButton\">Get the Game</a>");
+		                out.print("<a href=\"rs\" class=\"primaryButton\">Get the Game</a>");
 		                
 		                out.print("</div>");
 				}

@@ -7,7 +7,7 @@ SELECT * From db1.game_comment;
 SELECT * FROM db1.games WHERE gameID = 20;
 
 
-SELECT * From db1.users;
+SELECT * From db1.game_comment
 
 
 INSERT INTO `db1`.`genre` (`genreName`) VALUES ('Adventure');
@@ -69,6 +69,10 @@ SELECT * FROM db1.games WHERE (gameTitle LIKE '%')
 
 -- Select From Genre
 SELECT gameID FROM db1.game_genre WHERE (genreID = 5);
+
+
+SELECT * FROM db1.comments
+SELECT * FROM db1.game_comment
 
 -- Compound Searcg
 SELECT * FROM db1.games ga

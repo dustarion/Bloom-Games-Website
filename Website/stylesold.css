@@ -255,7 +255,7 @@ p {
 }
 
 .gameCard img {
-	float: left;
+    float: left;
     min-width: 200px;
     min-height: 200px;
     width: 10%;
@@ -299,7 +299,7 @@ select {
     font-size: 1.1em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    background-color: #000000;
+    background-color: transparent;
     color: #ffffff;
 }
 
@@ -506,6 +506,8 @@ input[type=radio]:checked ~ label{
     border-radius: 15px;
     box-shadow: 7px 7px 20px 7px;
     overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .loginTextfield {
@@ -564,19 +566,37 @@ input[type=radio]:checked ~ label{
     display: inline-block;
 }
 
-.gameDetailsSection .imageDetails .primaryButton {
+.gameDetailsSection .imageDetails a {
     float: left;
     padding: 20px 50px;
     width: 80%;
+    text-decoration: none;
+    margin: 0px;
+    text-align: center;
+    vertical-align:none;
 }
 
 .gameDetailsSection img {
+
     float: left;
     width: 80%;
     height: auto;
     margin: 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 14px 7px;
+}
+
+.gameDetailsSection .price {
+    width: 100%;
+    padding-top: 500px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.gameDetailsSection .primaryButton {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
 }
 
 /* Right Section */
@@ -807,100 +827,6 @@ label.star:before {
 
 
 /* ======================================================== */
-/* ====================   Shopping Cart   ================= */
-/* ======================================================== */
-
-.shoppingCartTable {
-    color: #ffffff;
-    width: 100%
-}
-
-.product-image { float: left; width: 20%; }
-.product-details { float: left; width: 37%; }
-.product-price { float: left; width: 12%; }
-.product-quantity { float: left; width: 10%; }
-.product-removal { float: left; width: 9%; }
-.product-line-price { float: left; width: 12%; text-align: right; }
-
-.shoppingCartTable td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 10px;
-}
-
-/* Games Column*/
-/*.shoppingCartTable td .left {
-    width: 20%;
-    float: left;
-}
-
-.shoppingCartTable td .right {
-    max-width: 70%;
-    margin-left: 20px;
-    float: left;
-}
-*/
-/* Quantity Column */
-.shoppingCartTable td input {
-    background-color: transparent;
-    border-color: #ffffff;
-    color: #ffffff;
-    /*padding: 10px;*/
-
-}
-
-/* Actions Column */
-.shoppingCartTable td a {
-    color: #F63F45;
-    /*padding: 10px;*/
-    /*text-decoration: none;*/
-}
-
-/*.shoppingCartTable td p {
-    font-weight: bold;
-}*/
-
-/*.shoppingCartTable tr:nth-child(even) {
-  background-color: #dddddd;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ======================================================== */
 /* ====================   Admin Menu   ==================== */
 /* ======================================================== */
 
@@ -986,10 +912,6 @@ label.star:before {
     margin-bottom: 25px;
 }
 
-.adminCard a {
-	text-decoration: none;
-}
-
 .adminCard .container {
     width: 100%;
     background-color: #424242;
@@ -1041,7 +963,7 @@ label.star:before {
 }
 
 .mainFormCard .radioPreowned {
-    margin-left: 200px;
+    margin-left: -10px;
 }
 
 input[type="submit"] {
@@ -1065,10 +987,6 @@ input[type="submit"] {
 	font-size: 1em;
     font-weight: 400;
     color: #ffffff;
-}
-
-.hidden {
-	display: none;
 }
 
 

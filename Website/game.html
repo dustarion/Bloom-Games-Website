@@ -33,6 +33,7 @@
                         <img src="images/games/apexLegends.png">
                         <a class="primaryButton" href="#">Purchase ($49.99)</a>
                     </div>
+                    <!-- <p class="price"><strong>10</strong> currently in Stock</p> -->
                 </div>
 
                 <div class="gameDetailsSectionRight">
@@ -75,52 +76,26 @@
             <!-- Comments -->
             <div class="commentsSection">
 
-                <!-- Comment Form -->
                 <form class="commentForm">
-
-                    <!-- Name -->
                     <div class="commentFormName">
                         <h3>Name</h3>
-                        <input class="textfield" type="text" name="name" placeholder="Enter Name Here">
+                        <input class="textfield" type="text" name="name" placeholder="Enter Name Here" required>
                         
                     </div>
-
-                    <!-- 5 Star Rating -->
-                    <div class="commentFormRating">
+                     <div class="commentFormName">
                         <h3>Rating</h3>
-
-                        <div class="rating">
-                        <div class="stars">
-                            <input class="star star-5" id="star-5" type="radio" name="star"/>
-                            <label class="star star-5" for="star-5"></label>
-                            <input class="star star-4" id="star-4" type="radio" name="star"/>
-                            <label class="star star-4" for="star-4"></label>
-                            <input class="star star-3" id="star-3" type="radio" name="star"/>
-                            <label class="star star-3" for="star-3"></label>
-                            <input class="star star-2" id="star-2" type="radio" name="star"/>
-                            <label class="star star-2" for="star-2"></label>
-                            <input class="star star-1" id="star-1" type="radio" name="star"/>
-                            <label class="star star-1" for="star-1"></label>
-                        </div>
-                        </div>
-                    </div>
-
-                    <style type="text/css">
-                        .hidden {
-                            display: none;
-                        }
-                    </style>
-                    <input class="hidden" type="text" name="gameID" placeholder="" value="20">
+            <input class="textfield" type="number" min="0" max="5" value="5" step="1" name="rating" placeholder="Enter a rating from 1-5 here" required>
+                        
+            </div>
 
                     <!-- Comment Box -->
                     <div class="commentBox">
-                        <textarea name="Text1" cols="40" rows="5" class="commentfield" type="textarea" name="comment" placeholder="Write Your Comment Here"></textarea>
+                        <textarea name="comment" cols="40" rows="5" class="commentfield" type="textarea" name="comment" placeholder="Write Your Comment Here" required></textarea>
                     </div>
 
                     <!-- Post Button -->
                     <input type="submit" value="Post">
                 </div>
-
 
                 <!-- Database Updates This As Needed -->
                 <h2>3 Comments</h2>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="javax.swing.JOptionPane" %>
 <%@page import="java.sql.*"%>
@@ -125,4 +125,4 @@
 
 
 </body>
-</html>
+</html> --%>

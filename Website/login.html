@@ -21,24 +21,66 @@
             <a href="admin.html">Admin <i class="fas fa-user-alt"></i></a>
 
             <!-- Login -->
-            <a class="login" href="login.html">Login <i class="fas fa-sign-in-alt"></i></a>
-        </div>
+            <a class="login" href="login.html">Login/Register <i class="fas fa-sign-in-alt"></i></a>
+        </div> 
+
+        <!-- Login/Register -->
+        
 
         <!-- Login Card -->
         <div class="loginSection">
+
+            <h2>Login</h2>
+
             <!-- <form action="/action_page.php"> -->
             <form class="loginCard" action="admin.html">
                 <!-- Username -->
-                <p>Username</p><br>
-                <input class="loginTextfield" type="text" name="Username" placeholder="Type Your Username" value="admin">
+                <p>Email</p><br>
+                <input class="loginTextfield" type="text" name="Username" placeholder="Type Your Username">
                 <br>
                 <!-- Password -->
                 <p>Password</p><br>
-                <input class="loginTextfield" type="text" name="Password" placeholder="Enter Your Password" value="secretPassword">
+                <input class="loginTextfield" type="password" name="Password" placeholder="Enter Your Password">
 
                 <!-- Login Button -->
-                <input class="primaryButton" type="submit" value="Submit">
-            </form> 
+                <input class="primaryButton" type="submit" value="Login">
+            </form>
+
+            <h2>Or Signup</h2>
+
+            <form class="loginCard" action="admin.html">
+                <!-- Name -->
+                <p>Name</p><br>
+                <input class="loginTextfield" type="text" name="Name" placeholder="Your Name">
+                <br>
+
+                <!-- Mailing Address -->
+                <p>Mailing Address </p><br>
+                <input class="loginTextfield" type="text" name="Address1" placeholder="Address Line 1">
+                <br>
+                <input class="loginTextfield" type="text" name="Address2" placeholder="Address Line 2 (Optional)">
+                <br>
+
+                <!-- Email -->
+                <p>Email</p><br>
+                <input class="loginTextfield" type="email" name="Email" placeholder="Your Email">
+                <br>
+
+                <!-- Contact Number -->
+                <p>Contact Number</p><br>
+                <input class="loginTextfield" type="number" name="Name" placeholder="Your Name">
+                <br>
+
+                <!-- Password -->
+                <p>Password</p><br>
+                <input class="loginTextfield" type="password" name="Password" placeholder="Enter Your Password">
+                <input class="loginTextfield" type="password" name="Password2" placeholder="Enter Your Password Again">
+
+                <!-- Login Button -->
+                <input class="primaryButton" type="submit" value="Signup">
+            </form>
+
+
         </div>
 
         <footer>

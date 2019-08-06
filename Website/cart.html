@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- CSS File -->
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <!-- <i class="fas fa-camera"></i> -->
+
+
+
+    </head>
+    <body>
+
+        <!-- Navigation Bar -->
+        <div class="topnav">
+            <!-- Logo -->
+            <a class="logo" href="index.html"><img src="images/main/BloomLogo.png"> </a>
+
+            <!-- Menu -->
+            <a href="index.html">Home <i class="fas fa-home"></i></a>
+            <a href="search.html">Search <i class="fas fa-search"></i></a>
+            <!-- <a href="admin.html">Admin <i class="fas fa-user-alt"></i></a> -->
+
+            <!-- Login -->
+            
+            <!-- 
+                Public: Login/Register
+                Member: None
+                Admin: Logout 
+             -->
+
+            <!-- <a class="login" href="login.html">Login/Register <i class="fas fa-sign-in-alt"></i></a> -->
+
+            <!-- Member Nav Bar -->
+            <a class="active" href="cart.html">Cart <i class="fas fa-shopping-cart"></i></a>
+            
+            <a class="login" href="login.html">Profile <i class="fas fa-user"></i></a>
+
+        </div>
+
+        <div class="searchResultsSection">
+
+            <!-- Genre Text -->
+            <h2>Shopping Cart</h2>
+
+<!--            <div class="gameCard">
+                <img src="images/games/apexLegends.png">
+
+                <h3>Apex Legends</h3>
+                <p>Conquer with character in the next evolution of Battle Royale</p>
+                <button class="primaryButton" href="#">Get the Game</button>
+                <button class="secondaryButton" href="#">Watch the Trailer</button>
+            </div> -->
+
+            <table class="shoppingCartTable">
+                <tr>
+                    <th>Game</th>
+                    <th></th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Remove</th> <!-- Remove Product -->
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images/games/apexLegends.png">
+                    </td>
+                    
+                    <td>
+                        <p><strong>Apex Legends</strong></p>
+                        <br>
+                        <p>Conquer with character in the next evolution of Battle Royale.</p>
+                        <!-- <a href="#">View</a> -->
+                    </td>
+
+                    <td>
+                        $12.99
+                    </td>
+
+                    <td>
+                        <input type="number" value="4" min="1">
+                    </td>
+
+                    <td>
+                        <a href="#">Delete</a>
+                    </td>
+
+                    <td>
+                        $12.99
+                    </td>
+                    
+                </tr>
+            </table>
+
+        </div>
+
+        <footer>
+            <!-- © 2019 ™Bloom Games -->
+            <p>&copy; 2019 &trade;Bloom Games</p>
+        </footer>
+
+    </body>
+</html>
